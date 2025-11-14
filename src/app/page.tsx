@@ -25,9 +25,84 @@ const offerItems = [
   "ZARZĄDZANIE PRACAMI I KOORDYNACJA WYKONAWCÓW"
 ];
 
+const aboutCards = [
+  {
+    text: "Jestem Architektem Wnętrz z wykształcenia, ukończyłam studia licencjackie oraz magisterskie na Politechnice Śląskiej w Gliwicach.",
+    image: "/images/studia.png",
+    alt: "O mnie"
+  },
+  {
+    text: "Po latach pracy w biurach projektowych i architektonicznych powstało miejsce, w którym mogę realizować projekty w zgodzie z moimi wartościami.",
+    image: "/images/praca.png",
+    alt: "O mnie"
+  },
+  {
+    text: "Projektowanie wnętrz to dla mnie coś więcej niż praca – to sposób na opowiadanie historii poprzez przestrzeń.",
+    image: "/images/hobby.png",
+    alt: "O mnie"
+  }
+];
+
+const trustReasons = [
+  {
+    title: "SPÓJNOŚĆ I FUNKCJONALNOŚĆ",
+    description: "Każdy detal jest idealnie dopasowany do indywidualnych potrzeb a wszystkie rozwiązania są ergonomiczne."
+  },
+  {
+    title: "DOPASOWANIE DO BUDŻETU I DECYZJE BEZ RYZYKA",
+    description: "Budżet jest od początku do końca nadzorowany a przemyślany projekt elimunuje dodatkowe koszty."
+  },
+  {
+    title: "WSPARCIE NA KAŻDYM ETAPIE",
+    description: "Konsultacje od wyboru mieszkania, przez dobór materiałów i układ funkcjonalny po kontakt z wykonawcami."
+  }
+];
+
+const cooperationStages = [
+  {
+    text: "Analiza potrzeb: podstawa projektu",
+    isFilled: true
+  },
+  {
+    text: "Ustalenie budżetu i wybór materiałów: kontrola wydatków od początku",
+    isFilled: false
+  },
+  {
+    text: "Koncepcja i wizualizacja 3D: zobacz swoje wnętrze",
+    isFilled: false
+  },
+  {
+    text: "Projekt wykonawczy: szczegóły dla wykonawców",
+    isFilled: false
+  }
+];
+
+const contactItems = [
+  {
+    icon: "/icons/komorka_biala.png",
+    text: "+48 690 143 393",
+    alt: "Telefon"
+  },
+  {
+    icon: "/icons/mail_bialy.png",
+    text: "kontakt.kreujemy@gmail.com",
+    alt: "Email"
+  },
+  {
+    icon: "/icons/fb_bialy.png",
+    text: "@Kreuje.MY",
+    alt: "Facebook"
+  },
+  {
+    icon: "/icons/insta_bialy.png",
+    text: "@Kreuje.MY",
+    alt: "Instagram"
+  }
+];
+
 export default function Home() {
   return (
-    <div className="border-2 border-amber-800 rounded-xl h-full w-full">
+    <div className="border-2 border-amber-800  h-full w-full z-10">
 
       {/* Hero section */}
       <div
@@ -65,7 +140,7 @@ export default function Home() {
 
       {/* Offer section */}
       <div className="bg-amber-800" style={{ "borderTopRightRadius": "82px", "borderTopLeftRadius": "82px" }}>
-        <div className="flex items-start justify-between w-6/7 mx-auto py-12">
+        <div className="flex items-start justify-evenly w-6/7 mx-auto py-12">
           <div className="py-2 pb-8 rounded-4xl text-white border-2 border-white w-1/3 max-w-80 overflow-visible flex flex-col items-center justify-center">
             <p className="text-md text-center mb-4">OFERTA</p>
             <ul className="list-none text-sm w-[130%] max-w-96 text-center flex flex-col gap-6">
@@ -93,14 +168,102 @@ export default function Home() {
 
       {/* About section */}
       <div className="bg-amber-800">
-        <div className="bg-white" style={{ "borderTopRightRadius": "82px", "borderTopLeftRadius": "82px" }}>
-          <div className="flex items-center justify-between w-6/7 mx-auto py-12">
-            <div className="w-1/3">
-              <h2 className="text-2xl mb-4">O MNIE</h2>
+        <div className="bg-white p-12" style={{ "borderTopRightRadius": "82px", "borderTopLeftRadius": "82px" }}>
+          <div className="flex items-stretch justify-center w-6/7 mx-auto py-12">
+            {aboutCards.flatMap((card, index) => [
+              <div key={`card-${index}`} className="border-2 border-amber-800 z-20 bg-white rounded-4xl p-4 text-center flex flex-col items-center justify-between w-1/5 min-w-48 pt-18 relative self-stretch">
+                <div className="border-2 border-amber-800 bg-amber-800 z-10 rounded-full w-22 h-22 absolute left-1/2 top-0 -translate-y-1/2 -translate-x-1/2" />
+                <div className="border-2 border-amber-800 bg-white z-10 rounded-b-full w-22 h-11 absolute left-1/2 top-0 -translate-x-1/2" />
+                {index === 1 && (
+                  <div className="absolute left-1/2 -top-3 -translate-y-1/2 -translate-x-1/2 z-20 flex items-center justify-center w-22 h-22">
+                    <span className="text-white text-s">O MNIE</span>
+                  </div>
+                )}
+                <p>{card.text}</p>
+                <div className="my-4 w-30 h-30 flex items-center justify-center overflow-hidden mt-auto">
+                  <Image src={card.image} alt={card.alt} width={150} height={150} className="max-w-full max-h-full w-auto h-auto object-contain" />
+                </div>
+              </div>,
+              ...(index < aboutCards.length - 1 ? [
+                <div key={`line-${index}`} className="relative flex items-center z-10 w-16">
+                  <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-amber-800 -translate-y-1/2"></div>
+                </div>
+              ] : [])
+            ])}
+          </div>
+        </div>
+      </div>
+
+      {/* Trust badge section */}
+      <div className="bg-white">
+        <div className="bg-amber-800 p-12" style={{ "borderRadius": "82px" }}>
+          <div className="w-6/7 max-w-7xl mx-auto flex gap-8 items-start justify-evenly">
+            {/* Left column - Why trust me */}
+            <div className="flex-1 max-w-md flex flex-col gap-6">
+              <div className="border-2 border-white text-white rounded-4xl px-4 py-3 w-xs mx-auto">
+                <h2 className="text-lg uppercase text-center">DLACZEGO WARTO MI ZAUFAĆ?</h2>
+              </div>
+              <div className="flex flex-col gap-4">
+                {trustReasons.map((reason, index) => (
+                  <div key={index} className="bg-white border-2 border-amber-800 rounded-4xl p-6 relative w-xs mx-auto">
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 bg-amber-800 rounded-full border-2 border-white"></div>
+                    <h3 className="font-bold text-sm uppercase mb-2 ml-4">{reason.title}</h3>
+                    <p className="text-sm ml-4">{reason.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right column - Cooperation stages */}
+            <div className="flex-1 max-w-md flex flex-col gap-6">
+              <div className="border-2 border-white text-white rounded-4xl px-4 py-3 w-xs mx-auto">
+                <h2 className="text-lg uppercase text-center">ETAPY WSPÓŁPRACY</h2>
+              </div>
+              <div className="bg-white border-2 border-amber-800 rounded-4xl p-8 relative ">
+                <div className="absolute top-13 bottom-8 w-1 bg-amber-800 -translate-x-1/2 z-0"></div>
+                <div className="flex flex-col gap-8 relative">
+                  {cooperationStages.map((stage, index) => (
+                    <div key={index} className="relative flex items-center min-h-[60px]">
+                      <div className={`absolute left-0 -translate-x-1/2 w-8 h-8 rounded-full border-2 border-amber-800 ${stage.isFilled ? 'bg-amber-800' : 'bg-white'} z-10`}></div>
+                      <p className={`text-sm 'mr-auto pl-12 text-left' w-3/4`}>{stage.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="w-full max-w-2xl mx-auto mt-12 flex justify-center">
+                <div className="border-2 border-white text-white rounded-4xl px-8 py-4">
+                  <h2 className="text-lg uppercase text-center">UMÓW SIĘ NA BEZPŁATNĄ KONSULTACJE</h2>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+      {/* Contact section */}
+      <div className="bg-white p-12">
+        <div className="w-6/7 max-w-7xl mx-auto flex gap-8 items-start justify-evenly">
+          <div className="relative flex items-center justify-center">
+            <Image src="/images/glowna-kontakt.jpg" alt="Kontakt" width={500} height={500} className="rounded-4xl" />
+            <Image src="/images/logo_czarne_skrocone.png" alt="Kontakt" width={150} height={150} className="rounded-4xl absolute left-0 top-1/2 -translate-y-1/2 " />
+          </div>
+          <div className="flex flex-col gap-4">
+            <h2 className="text-2xl text-center mb-4">KONTAKT</h2>
+            {contactItems.map((item, index) => (
+              <div key={index} className="flex items-center justify-start gap-4 border border-amber-800 rounded-4xl pr-8">
+                <div className="w-8 h-8 bg-amber-800 rounded-full p-2 flex items-center justify-center">
+                  <Image src={item.icon} alt={item.alt} width={24} height={24} />
+                </div>
+                <div className="text-center w-full">
+                  <p>{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+
+      </div >
+    </div >
   );
 }
