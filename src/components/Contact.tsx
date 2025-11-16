@@ -52,8 +52,12 @@ const Contact = ({
   logoWidth = 150,
   logoHeight = 150
 }: ContactProps) => {
+
+  const liBgColor = backgroundColor === "bg-white" ? "border-amber-800" : "bg-white border-white";
+  const textColor = backgroundColor === "bg-white" ? "text-amber-800" : "text-white";
+
   return (
-    <div className={`${backgroundColor} p-12`}>
+    <div className={`${backgroundColor} p-12`} style={{ "borderRadius": "82px" }}>
       <div className="w-6/7 max-w-7xl mx-auto flex gap-8 items-start justify-evenly">
         <div className="relative flex items-center justify-center">
           <Image
@@ -74,9 +78,9 @@ const Contact = ({
           )}
         </div>
         <div className="flex flex-col gap-4">
-          <h2 className="text-2xl text-center mb-4">{title}</h2>
+          <h2 className={`text-2xl text-center mb-4 ${textColor}`}>{title}</h2>
           {contactItems.map((item, index) => (
-            <div key={index} className="flex items-center justify-start gap-4 border border-amber-800 rounded-4xl pr-8">
+            <div key={index} className={`flex items-center justify-start gap-4 border ${liBgColor} rounded-4xl pr-8`}>
               <div className="w-8 h-8 bg-amber-800 rounded-full p-2 flex items-center justify-center">
                 <Image src={item.icon} alt={item.alt} width={24} height={24} />
               </div>
