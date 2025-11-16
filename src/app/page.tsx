@@ -1,5 +1,7 @@
 import Image from "next/image";
-import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Contact from "@/components/Contact";
+import PackageOptionCard from "@/components/PackageOptionCard";
 
 const packageOptions = [
   {
@@ -77,67 +79,21 @@ const cooperationStages = [
   }
 ];
 
-const contactItems = [
-  {
-    icon: "/icons/komorka_biala.png",
-    text: "+48 690 143 393",
-    alt: "Telefon"
-  },
-  {
-    icon: "/icons/mail_bialy.png",
-    text: "kontakt.kreujemy@gmail.com",
-    alt: "Email"
-  },
-  {
-    icon: "/icons/fb_bialy.png",
-    text: "@Kreuje.MY",
-    alt: "Facebook"
-  },
-  {
-    icon: "/icons/insta_bialy.png",
-    text: "@Kreuje.MY",
-    alt: "Instagram"
-  }
-];
-
 export default function Home() {
   return (
     <div className="border-2 border-amber-800  h-full w-full z-10">
-
-      {/* Hero section */}
-      <div
-        className="relative flex flex-col min-h-[75vh] w-full justify-between"
-        style={{
-          backgroundImage: 'url(/images/hero-main.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        <Navbar />
-        {/* Gradient overlay - fade to white at top and bottom */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0) 20%, rgba(255,255,255,0) 80%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.95) 100%)'
-          }}
-        ></div>
-
-        {/* Hero overlay */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full w-6/7 mx-auto my-8">
-          {/* logo */}
-          <div className="flex items-center justify-between w-full px-8">
-            <Image src="/images/nazwa.png" alt="Logo" width={400} height={400} />
-            <div className="bg-amber-800 rounded-4xl p-2 w-1/3 text-center">
-              <p className="text-md text-white">
-                Nie żyj po prostu w swoim wnętrzu - rozwijaj
-                się w nim dzięki wyjątkowemu projektowi.
-              </p>
-            </div>
+      <Hero
+        backgroundImageUrl="/images/hero-main.jpg"
+        leftElement={<Image src="/images/nazwa.png" alt="Logo" width={400} height={400} />}
+        rightElement={
+          <div className="bg-amber-800 rounded-4xl p-2 w-1/3 text-center">
+            <p className="text-md text-white">
+              Nie żyj po prostu w swoim wnętrzu - rozwijaj
+              się w nim dzięki wyjątkowemu projektowi.
+            </p>
           </div>
-        </div>
-      </div>
-
+        }
+      />
       {/* Offer section */}
       <div className="bg-amber-800" style={{ "borderTopRightRadius": "82px", "borderTopLeftRadius": "82px" }}>
         <div className="flex items-start justify-evenly w-6/7 mx-auto py-12">
@@ -156,11 +112,11 @@ export default function Home() {
               <p className="text-md">KOMPLEKSOWY PROJEKT WNĘTRZA</p>
             </div>
             {packageOptions.map((option, index) => (
-              <div key={index} className="bg-white rounded-4xl p-5 px-8 relative">
-                <h3 className="text-lg mb-4">{option.title}</h3>
-                <p className="text-sm">{option.description}</p>
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full bg-amber-800 border-2 border-white w-12 h-12" />
-              </div>
+              <PackageOptionCard
+                key={index}
+                title={option.title}
+                description={option.description}
+              />
             ))}
           </div>
         </div>
@@ -241,29 +197,12 @@ export default function Home() {
       </div>
 
       {/* Contact section */}
-      <div className="bg-white p-12">
-        <div className="w-6/7 max-w-7xl mx-auto flex gap-8 items-start justify-evenly">
-          <div className="relative flex items-center justify-center">
-            <Image src="/images/glowna-kontakt.jpg" alt="Kontakt" width={500} height={500} className="rounded-4xl" />
-            <Image src="/images/logo_czarne_skrocone.png" alt="Kontakt" width={150} height={150} className="rounded-4xl absolute left-0 top-1/2 -translate-y-1/2 " />
-          </div>
-          <div className="flex flex-col gap-4">
-            <h2 className="text-2xl text-center mb-4">KONTAKT</h2>
-            {contactItems.map((item, index) => (
-              <div key={index} className="flex items-center justify-start gap-4 border border-amber-800 rounded-4xl pr-8">
-                <div className="w-8 h-8 bg-amber-800 rounded-full p-2 flex items-center justify-center">
-                  <Image src={item.icon} alt={item.alt} width={24} height={24} />
-                </div>
-                <div className="text-center w-full">
-                  <p>{item.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-
-      </div >
+      <Contact
+        photoUrl="/images/glowna-kontakt.jpg"
+        backgroundColor="bg-white"
+        logoUrl="/images/logo_czarne_skrocone.png"
+        title="KONTAKT"
+      />
     </div >
   );
 }
