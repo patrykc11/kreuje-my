@@ -24,7 +24,7 @@ const defaultContactItems: ContactItem[] = [
   },
   {
     icon: "/icons/insta_bialy.png",
-    text: "@Kreuje.MY",
+    text: "@kreuje.my",
     alt: "Instagram"
   }
 ];

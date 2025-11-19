@@ -10,7 +10,7 @@ export default async function Projekty() {
     <div className="h-full w-full">
       <Hero
         backgroundImageUrl="/images/projekty-glowne.jpg"
-        leftElement={<p className="text-white text-6xl relative top-[-82px]">PROJEKTY</p>}
+        leftElement={<h1 className="text-white text-6xl relative top-[-82px]">PROJEKTY</h1>}
         rightElement={<></>}
         gradientOverlay="transparent"
         darkTheme={true}

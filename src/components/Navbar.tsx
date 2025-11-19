@@ -13,7 +13,7 @@ const Navbar = ({ darkTheme = false }: NavbarProps) => {
   const instaIcon = '/icons/insta_bialy.png';
 
   return (
-    <div className="flex justify-between items-center z-10 w-5/6 my-6 mx-auto">
+    <div className="flex justify-between items-center z-10 w-5/6 my-6 mx-auto font-display text-lg tracking-wide">
       {/* Navbar links */}
       <div className={`flex items-center gap-8 ${linkTextColor}`}>
         <Link href="/">HOME</Link>

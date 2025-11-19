@@ -99,12 +99,36 @@ i dodatkowych kosztów.`
     "konsultacje na każdym etapie projektu",
   ]
 
+  const detailedPackages = [
+    {
+      title: "BASIC",
+      description: `To idealna opcja dla osób, które chcą zobaczyć pomysł
+na aranżację i samodzielnie zająć się realizacją.`,
+      items: basicPackageItems,
+      previousItems: [] as string[],
+    },
+    {
+      title: "KOMFORT",
+      description: `Dzięki temu zakresowi projekt można zrealizować krok po kroku,
+dokładnie tak, jak został zaplanowany.`,
+      items: comfortPackageItems,
+      previousItems: basicPackageItems,
+    },
+    {
+      title: "PREMIUM",
+      description: `To rozwiązanie dla osób, które potrzebują większej elastyczności i doradztwa
+przy jednocześnie większych możliwościach i dużym wyborze.`,
+      items: premiumPackageItems,
+      previousItems: comfortPackageItems,
+    },
+  ]
+
 
   return (
     <div className="h-full w-full">
       <Hero
         backgroundImageUrl="/images/oferta-glowne.jpg"
-        leftElement={<p className="text-black text-6xl relative top-[-82px]">OFERTA</p>}
+        leftElement={<h1 className="text-black text-6xl relative top-[-82px]">OFERTA</h1>}
         rightElement={<div className="bg-amber-800 rounded-4xl w-1/3 text-center  relative top-[-82px] p-3">
           <p className="text-md text-white">
             UMÓW SIĘ NA BEZPŁATNĄ
@@ -117,7 +141,7 @@ i dodatkowych kosztów.`
       <div className="bg-amber-800 relative top-[-82px]" style={{ "borderRadius": "82px" }}>
         <div className="py-12">
           <div className="w-6/7 mx-auto gap-8 relative max-w-4xl">
-            <div className="text-center text-white text-2xl mb-6 w-full border-2 border-white rounded-full p-1">USŁUGI</div>
+            <div className="text-center text-white text-2xl mb-6 w-full border-2 border-white rounded-full p-1"><h2>USŁUGI</h2></div>
             <div className="grid grid-cols-2 mx-auto justify-center items-stretch gap-8">
               {packageOptions.map((option, index) => (
                 <div className="max-w-80 mx-auto h-full flex" key={index}>
@@ -136,88 +160,40 @@ i dodatkowych kosztów.`
       {/* Projekty section */}
       <div className="">
         <div className="w-6/7 mx-auto gap-8 relative max-w-4xl">
-          <div className="text-center text-black text-2xl mb-6 w-full border-2 border-black rounded-full p-1">KOMPLEKSOWY PROJEKT WNĘTRZA</div>
+          <div className="text-center text-black text-2xl mb-6 w-full border-2 border-black rounded-full p-1"><h2>KOMPLEKSOWY PROJEKT WNĘTRZA</h2></div>
           <div className="flex flex-col mx-auto justify-center items-stretch gap-8">
 
-            <div className="border-2 border-black rounded-4xl p-4 px-8 grid grid-cols-2 gap-8">
-              <div className="flex flex-col justify-center gap-4 w-2/3 min-w-48 max-w-2xs">
-                <div className="relative">
-                  <h3 className="text-2xl">BASIC</h3>
-                  <div className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-15 rounded-full bg-amber-800 border-2 border-black w-12 h-12`} />
+            {detailedPackages.map((pkg, pkgIndex) => (
+              <div key={pkg.title} className="border-2 border-black rounded-4xl p-4 px-8 grid grid-cols-2 gap-8">
+                <div className="flex flex-col justify-center gap-4 w-2/3 min-w-48 max-w-2xs">
+                  <div className="relative">
+                    <h3 className="text-2xl">{pkg.title}</h3>
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-15 rounded-full bg-amber-800 border-2 border-black w-12 h-12" />
+                  </div>
+                  <p className="text-amber-800 whitespace-pre-line">{pkg.description}</p>
                 </div>
-                <p className="text-amber-800">To idealna opcja dla osób,
-                  które chcą zobaczyć pomysł
-                  na aranżację i samodzielnie
-                  zająć się realizacją.</p>
+                <div className="w-full min-w-48 max-w-md">
+                  <ul className="list-none flex flex-col gap-2">
+                    {pkg.items.map((item, index) => {
+                      const isNewItem = pkgIndex === 0 ? false : !pkg.previousItems.includes(item);
+                      return (
+                        <li key={index} className="flex items-start gap-3">
+                          <div
+                            className={`rounded-full p-1.5 shrink-0 mt-0.5 border ${isNewItem ? "bg-white border-black" : "bg-amber-800 border-amber-800"}`}
+                          >
+                            <Image src="/icons/wybor_czarny.png" alt="" width={16} height={16} />
+                          </div>
+                          <span>{item}</span>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div >
               </div>
-              <div className="w-full min-w-48 max-w-md">
-                <ul className="list-none flex flex-col gap-2">
-                  {basicPackageItems.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="bg-amber-800 rounded-full p-1.5 shrink-0 mt-0.5">
-                        <Image src="/icons/wybor_czarny.png" alt="" width={16} height={16} />
-                      </div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div >
-            </div>
-
-            <div className="border-2 border-black rounded-4xl p-4 px-8 grid grid-cols-2 gap-8">
-              <div className="flex flex-col justify-center gap-4 w-2/3 min-w-48 max-w-2xs">
-                <div className="relative">
-                  <h3 className="text-2xl">KOMFORT</h3>
-                  <div className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-15 rounded-full bg-amber-800 border-2 border-black w-12 h-12`} />
-                </div>
-                <p className="text-amber-800">Dzięki temu zakresowi
-                  projekt można zrealizować
-                  krok po kroku, dokładnie
-                  tak, jak został zaplanowany.</p>
-              </div>
-              <div className="w-full min-w-48 max-w-md">
-                <ul className="list-none flex flex-col gap-2">
-                  {comfortPackageItems.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="bg-amber-800 rounded-full p-1.5 shrink-0 mt-0.5">
-                        <Image src="/icons/wybor_czarny.png" alt="" width={16} height={16} />
-                      </div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div >
-            </div>
-
-            <div className="border-2 border-black rounded-4xl p-4 px-8 grid grid-cols-2 gap-8">
-              <div className="flex flex-col justify-center gap-4 w-2/3 min-w-48 max-w-2xs">
-                <div className="relative">
-                  <h3 className="text-2xl">PREMIUM</h3>
-                  <div className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-15 rounded-full bg-amber-800 border-2 border-black w-12 h-12`} />
-                </div>
-                <p className="text-amber-800">To rozwiązanie dla osób,
-                  które potrzebują większej
-                  elastyczności i doradztwa
-                  przy jednocześnie
-                  większych możliwościach i
-                  dużym wyborze.</p>
-              </div>
-              <div className="w-full min-w-48 max-w-md">
-                <ul className="list-none flex flex-col gap-2">
-                  {premiumPackageItems.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="bg-amber-800 rounded-full p-1.5 shrink-0 mt-0.5">
-                        <Image src="/icons/wybor_czarny.png" alt="" width={16} height={16} />
-                      </div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div >
-            </div>
+            ))}
 
             <div className="text-center text-black text-2xl w-full border-2 border-black rounded-full p-1 bg-white relative my-12 mb-20">
-              <p>WYCEŃ SWÓJ PROJEKT</p>
+              <h2>WYCEŃ SWÓJ PROJEKT</h2>
               <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full bg-amber-800 border-4 border-black w-24 h-24 -z-10" />
             </div>
 

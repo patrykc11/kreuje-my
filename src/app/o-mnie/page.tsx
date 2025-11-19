@@ -7,7 +7,7 @@ export default function OMnie() {
     <div className="h-full w-full">
       <Hero
         backgroundImageUrl="/images/o-mnie-glowne.jpg"
-        leftElement={<p className="text-amber-800 text-6xl relative top-[-82px]">O MNIE</p>}
+        leftElement={<h2 className="text-amber-800 text-6xl relative top-[-82px]">O MNIE</h2>}
         rightElement={<></>}
         gradientOverlay="transparent"
         darkTheme={true}
@@ -38,7 +38,7 @@ export default function OMnie() {
                 każdego klienta.</p>
             </div>
             <div
-              className="border-2 border-amber-800 z-20 bg-white rounded-4xl p-4 text-center flex flex-col items-center justify-center w-1/3 min-w-48 max-w-2xs py-8 px-4 relative self-stretch bg-cover bg-center"
+              className="border-2 border-white z-20 bg-white rounded-4xl p-4 text-center flex flex-col items-center justify-center w-1/3 min-w-48 max-w-2xs py-8 px-4 relative self-stretch bg-cover bg-center"
               style={{ backgroundImage: "url('/images/o-mnie.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}>
             </div>
             <div className="border-2 border-amber-800 z-20 bg-white rounded-4xl p-4 text-center flex flex-col items-center justify-center w-1/3 min-w-48 max-w-2xs py-8 px-4 relative self-stretch">
@@ -59,8 +59,8 @@ export default function OMnie() {
             </div>
           </div>
 
-          <div className="text-center text-black py-3">PAULINA KRASOWSKA-SZAFRUGA</div>
-        </div>
+          <div className="text-center text-black py-3"><h3>PAULINA KRASOWSKA-SZAFRUGA</h3></div>
+        </div >
       </div >
 
       <Contact

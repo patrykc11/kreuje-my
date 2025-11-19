@@ -87,10 +87,10 @@ export default function Home() {
         leftElement={<Image src="/images/nazwa.png" alt="Logo" width={400} height={400} />}
         rightElement={
           <div className="bg-amber-800 rounded-4xl p-2 w-1/3 text-center">
-            <p className="text-md text-white">
+            <h5 className="text-md text-white">
               Nie żyj po prostu w swoim wnętrzu - rozwijaj
               się w nim dzięki wyjątkowemu projektowi.
-            </p>
+            </h5>
           </div>
         }
       />
@@ -98,7 +98,7 @@ export default function Home() {
       <div className="bg-amber-800" style={{ "borderTopRightRadius": "82px", "borderTopLeftRadius": "82px" }}>
         <div className="flex items-start justify-evenly w-6/7 mx-auto py-12">
           <div className="py-2 pb-8 rounded-4xl text-white border-2 border-white w-1/3 max-w-80 overflow-visible flex flex-col items-center justify-center">
-            <p className="text-md text-center mb-4">OFERTA</p>
+            <h2 className="text-md text-center mb-4">OFERTA</h2>
             <ul className="list-none text-sm w-[130%] max-w-96 text-center flex flex-col gap-6">
               {offerItems.map((item, index) => (
                 <li key={index} className="bg-white text-black p-4 rounded-4xl">
@@ -109,7 +109,7 @@ export default function Home() {
           </div>
           <div className="w-1/3 flex gap-4 items-center justify-center flex-col">
             <div className="px-4 py-2 rounded-4xl text-white border-1 border-white text-center">
-              <p className="text-md">KOMPLEKSOWY PROJEKT WNĘTRZA</p>
+              <h2 className="text-md">KOMPLEKSOWY PROJEKT WNĘTRZA</h2>
             </div>
             {packageOptions.map((option, index) => (
               <PackageOptionCard
@@ -132,7 +132,7 @@ export default function Home() {
                 <div className="border-2 border-amber-800 bg-white z-10 rounded-b-full w-22 h-11 absolute left-1/2 top-0 -translate-x-1/2" />
                 {index === 1 && (
                   <div className="absolute left-1/2 -top-3 -translate-y-1/2 -translate-x-1/2 z-20 flex items-center justify-center w-22 h-22">
-                    <span className="text-white text-s">O MNIE</span>
+                    <h2 className="text-white text-s">O MNIE</h2>
                   </div>
                 )}
                 <p>{card.text}</p>
@@ -188,7 +188,7 @@ export default function Home() {
               </div>
               <div className="w-full max-w-2xl mx-auto mt-12 flex justify-center">
                 <div className="border-2 border-white text-white rounded-4xl px-8 py-4">
-                  <h2 className="text-lg uppercase text-center">UMÓW SIĘ NA BEZPŁATNĄ KONSULTACJE</h2>
+                  <span className="text-lg uppercase text-center">UMÓW SIĘ NA BEZPŁATNĄ KONSULTACJE</span>
                 </div>
               </div>
             </div>

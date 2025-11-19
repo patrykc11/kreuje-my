@@ -97,7 +97,7 @@ export default function Kontakt() {
         backgroundImageUrl="/images/kontakt-glowne.jpg"
         leftElement={
           <div className="bg-white absolute top-[-164px] left-[-250px] rounded-r-full px-16 w-xl text-right">
-            <p className="text-black text-6xl">KONTAKT</p>
+            <h1 className="text-black text-6xl">KONTAKT</h1>
           </div>}
         rightElement={<></>}
         gradientOverlay="linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0) 20%)"
@@ -233,7 +233,7 @@ export default function Kontakt() {
                 className={`w-full max-w-[320px] rounded-full px-12 py-3 text-xl uppercase tracking-[0.3em] text-white transition ${isSubmitDisabled ? "opacity-60 cursor-not-allowed" : "hover:brightness-90"}`}
                 style={{ backgroundColor: "#92400e" }}
               >
-                {isSubmitting ? "WYSYŁANIE..." : "WYŚLIJ"}
+                {isSubmitting ? <h3>WYSYŁANIE...</h3> : <h3>WYŚLIJ</h3>}
               </button>
               {feedback && (
                 <p
@@ -252,9 +252,9 @@ export default function Kontakt() {
             <div className="hidden h-[778px] absolute -top-[100px] right-0 rounded-b-[110px] border-2 border-black bg-cover bg-center lg:flex lg:flex-col lg:justify-center w-md" style={{ backgroundImage: "url('/images/kontakt-glowne.jpg')" }}>
               <div className="flex h-full w-full items-center justify-center bg-white/50 rounded-b-[110px] border-2">
                 <div className="flex h-full w-2/3 items-center justify-end">
-                  <p className="text-2xl tracking-[0.2em]" style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}>
+                  <h3 className="text-2xl tracking-[0.2em]" style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}>
                     WYCEN SWÓJ PROJEKT
-                  </p>
+                  </h3>
                 </div>
               </div>
             </div>
@@ -267,7 +267,7 @@ export default function Kontakt() {
               Dziękuję za zainteresowanie moimi usługami architektonicznymi. Po wysłaniu formularza skontaktuję się z Tobą, aby omówić Twoje potrzeby oraz oczekiwania. A następnie zaproponuję indywidualne rozwiązania, które będą najlepiej odpowiadać Twoim wymaganiom. Wierzę, że nasza współpraca pozwoli Ci zrealizować Twoje marzenia o idealnym projekcie architektonicznym.
             </p>
             <div className="absolute -bottom-30 left-2/6 -translate-x-1/2 translate-y-1/2 -z-20 mt-10 rounded-r-[80px] bg-amber-800 px-10 py-8 text-black w-xl mx-auto pl-52">
-              <p className="text-2xl font-semibold tracking-[0.4em]">ZOBACZ</p>
+              <h3 className="text-2xl font-semibold tracking-[0.4em]">ZOBACZ</h3>
               <div className="mt-6 space-y-4 text-sm tracking-[0.4em]">
                 <div className="flex items-center gap-4">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
