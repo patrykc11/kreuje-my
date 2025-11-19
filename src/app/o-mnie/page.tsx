@@ -4,17 +4,17 @@ import Image from "next/image";
 
 export default function OMnie() {
   return (
-    <div className="border-2 border-amber-800  h-full w-full z-10">
+    <div className="h-full w-full">
       <Hero
         backgroundImageUrl="/images/o-mnie-glowne.jpg"
-        leftElement={<p className="text-amber-800 text-6xl relative top-[-42px]">O MNIE</p>}
+        leftElement={<p className="text-amber-800 text-6xl relative top-[-82px]">O MNIE</p>}
         rightElement={<></>}
         gradientOverlay="transparent"
         darkTheme={true}
       />
 
       {/* O mnie section */}
-      <div className="bg-amber-800 relative top-[-42px]" style={{ "borderRadius": "82px" }}>
+      <div className="bg-amber-800 relative top-[-82px]" style={{ "borderRadius": "82px" }}>
         <div className="py-12">
           <div className="flex items-start justify-center w-6/7 mx-auto gap-8 relative">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] max-w-[1200px] h-1/2 border-3 border-black rounded-full"></div>

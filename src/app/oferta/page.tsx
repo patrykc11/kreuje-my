@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import PackageOptionCard from "@/components/PackageOptionCard";
 import Image from "next/image";
 
-export default function OMnie() {
+export default function Oferta() {
   const packageOptions = [
     {
       title: "KONSULTACJE",
@@ -101,11 +101,11 @@ i dodatkowych kosztów.`
 
 
   return (
-    <div className="border-2 border-amber-800  h-full w-full z-10">
+    <div className="h-full w-full">
       <Hero
         backgroundImageUrl="/images/oferta-glowne.jpg"
-        leftElement={<p className="text-black text-6xl relative top-[-42px]">OFERTA</p>}
-        rightElement={<div className="bg-amber-800 rounded-4xl w-1/3 text-center  relative top-[-42px] p-3">
+        leftElement={<p className="text-black text-6xl relative top-[-82px]">OFERTA</p>}
+        rightElement={<div className="bg-amber-800 rounded-4xl w-1/3 text-center  relative top-[-82px] p-3">
           <p className="text-md text-white">
             UMÓW SIĘ NA BEZPŁATNĄ
             KONSULTACJE
@@ -114,7 +114,7 @@ i dodatkowych kosztów.`
       />
 
       {/* Usługi section */}
-      <div className="bg-amber-800 relative top-[-42px]" style={{ "borderRadius": "82px" }}>
+      <div className="bg-amber-800 relative top-[-82px]" style={{ "borderRadius": "82px" }}>
         <div className="py-12">
           <div className="w-6/7 mx-auto gap-8 relative max-w-4xl">
             <div className="text-center text-white text-2xl mb-6 w-full border-2 border-white rounded-full p-1">USŁUGI</div>

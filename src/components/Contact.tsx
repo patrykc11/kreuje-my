@@ -54,7 +54,7 @@ const Contact = ({
 }: ContactProps) => {
 
   const liBgColor = backgroundColor === "bg-white" ? "border-amber-800" : "bg-white border-white";
-  const textColor = backgroundColor === "bg-white" ? "text-amber-800" : "text-white";
+  const textColor = backgroundColor === "bg-white" ? "text-black" : "text-white";
 
   return (
     <div className={`${backgroundColor} p-12`} style={{ "borderRadius": "82px" }}>

@@ -81,7 +81,7 @@ const cooperationStages = [
 
 export default function Home() {
   return (
-    <div className="border-2 border-amber-800  h-full w-full z-10">
+    <div className="h-full w-full">
       <Hero
         backgroundImageUrl="/images/hero-main.jpg"
         leftElement={<Image src="/images/nazwa.png" alt="Logo" width={400} height={400} />}
