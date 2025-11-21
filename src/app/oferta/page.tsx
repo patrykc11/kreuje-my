@@ -128,8 +128,9 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
     <div className="h-full w-full">
       <Hero
         backgroundImageUrl="/images/oferta-glowne.jpg"
-        leftElement={<h1 className="text-black text-6xl relative top-[-82px]">OFERTA</h1>}
-        rightElement={<div className="bg-amber-800 rounded-4xl w-1/3 text-center  relative top-[-82px] p-3">
+        fullWidth={true}
+        leftElement={<h1 className="text-black text-6xl relative top-[-82px] ml-26">OFERTA</h1>}
+        rightElement={<div className="bg-amber-800 rounded-l-4xl w-2/5 text-left relative -right-50 top-[-82px] py-4 px-8">
           <p className="text-md text-white">
             UMÓW SIĘ NA BEZPŁATNĄ
             KONSULTACJE

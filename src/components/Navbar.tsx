@@ -15,13 +15,15 @@ const Navbar = ({ darkTheme = false }: NavbarProps) => {
   return (
     <div className="flex justify-between items-center z-10 w-5/6 my-6 mx-auto font-display text-lg tracking-wide">
       {/* Navbar links */}
-      <div className={`flex items-center gap-8 ${linkTextColor}`}>
-        <Link href="/">HOME</Link>
-        <Link href="/o-mnie">O MNIE</Link>
-        <Link href="/oferta">OFERTA</Link>
-        <Link href="/projekty">PROJEKTY</Link>
-        <Link href="/kontakt">KONTAKT</Link>
-      </div>
+      <span>
+        <div className={`flex items-center gap-8 ${linkTextColor}`}>
+          <Link href="/">HOME</Link>
+          <Link href="/o-mnie">O MNIE</Link>
+          <Link href="/oferta">OFERTA</Link>
+          <Link href="/projekty">PROJEKTY</Link>
+          <Link href="/kontakt">KONTAKT</Link>
+        </div>
+      </span>
       {/* Navbar icons */}
       <div className="flex items-center gap-2">
         <Link href="/">

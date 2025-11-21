@@ -10,6 +10,7 @@ interface HeroProps {
   backgroundSize?: string;
   backgroundPosition?: string;
   darkTheme?: boolean;
+  fullWidth?: boolean;
 }
 
 const Hero = ({
@@ -21,6 +22,7 @@ const Hero = ({
   backgroundSize = 'cover',
   backgroundPosition = 'center',
   darkTheme = false,
+  fullWidth = false,
 }: HeroProps) => {
   return (
     <div
@@ -43,7 +45,7 @@ const Hero = ({
       ></div>
 
       {/* Hero overlay */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full w-6/7 mx-auto my-8">
+      <div className={`z-10 flex flex-col items-center justify-center h-full ${fullWidth ? 'w-full' : 'w-6/7'} mx-auto my-8`}>
         <div className="flex items-center justify-between w-full px-8">
           {leftElement}
           {rightElement}
