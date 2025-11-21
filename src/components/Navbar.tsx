@@ -6,8 +6,15 @@ interface NavbarProps {
   darkTheme?: boolean;
 }
 
+const socialLinks = {
+  'whatsapp': 'https://wa.me/',
+  'facebook': 'https://www.facebook.com/profile.php?id=61551211920272',
+  'instagram': 'https://www.instagram.com/kreuje.my',
+}
+
 const NavLink = ({ href, children, darkTheme }: { href: string, children: ReactNode, darkTheme: boolean }) => {
-  const borderColor = darkTheme ? 'border-white' : 'border-amber-950';
+  const borderColor = darkTheme ? 'border-amber-800' : 'border-black';
+
 
   return (
     <Link href={href} className="relative group flex items-center justify-center">
@@ -37,18 +44,18 @@ const Navbar = ({ darkTheme = false }: NavbarProps) => {
         </div>
       </span>
       {/* Navbar icons */}
-      <div className="flex items-center gap-2">
-        <Link href="/">
+      <div className="flex items-center gap-5">
+        <Link href={socialLinks.whatsapp} target="_blank">
           <div className={`w-10 h-10 ${iconBgColor} rounded-full p-2 flex items-center justify-center`}>
             <Image src={whatsappIcon} alt="Whats App" width={24} height={24} />
           </div>
         </Link>
-        <Link href="/">
+        <Link href={socialLinks.facebook} target="_blank">
           <div className={`w-10 h-10 ${iconBgColor} rounded-full p-2 flex items-center justify-center`}>
             <Image src={fbIcon} alt="Facebook" width={24} height={24} />
           </div>
         </Link>
-        <Link href="/">
+        <Link href={socialLinks.instagram} target="_blank">
           <div className={`w-10 h-10 ${iconBgColor} rounded-full p-2 flex items-center justify-center`}>
             <Image src={instaIcon} alt="Instagram" width={24} height={24} />
           </div>

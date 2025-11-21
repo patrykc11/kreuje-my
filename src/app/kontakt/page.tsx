@@ -1,7 +1,9 @@
 "use client";
 
 import Hero from "@/components/Hero";
+import FlipCard from "@/components/FlipCard";
 import Image from "next/image";
+import Link from "next/link";
 import { ChangeEvent, FormEvent, useRef, useState } from "react";
 
 const serviceOptions = [
@@ -14,6 +16,12 @@ const serviceOptions = [
   "meble na wymiar",
   "nadzór autorski"
 ];
+
+const socialLinks = {
+  'whatsapp': 'https://wa.me/',
+  'facebook': 'https://www.facebook.com/profile.php?id=61551211920272',
+  'instagram': 'https://www.instagram.com/kreuje.my',
+}
 
 export default function Kontakt() {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
@@ -107,18 +115,36 @@ export default function Kontakt() {
       <div className="bg-amber-800 relative top-[-82px] mx-auto z-40" style={{ borderRadius: "82px" }} >
         <div className="py-24 max-md:py-12">
           <div className="grid grid-cols-3 items-center justify-center w-5/7 max-lg:w-6/7 mx-auto gap-8 relative">
-            <div className="flex h-48 w-48 items-center justify-center rounded-full bg-white shadow-2xl mx-auto">
-              <Image src="/icons/mail.png" alt="Mail" width={150} height={150} />
-            </div>
+            <FlipCard
+              front={<Image src="/icons/komorka.png" alt="Komorka" width={120} height={120} />}
+              back={
+                <>
+                  <h3 className="text-amber-800 text-lg font-semibold mb-2">ZADZWOŃ</h3>
+                  <p className="text-black text-sm">+48 690 143 393</p>
+                </>
+              }
+            />
 
-            <div className="flex h-48 w-48 items-center justify-center rounded-full bg-white shadow-2xl mx-auto">
-              <Image src="/icons/komorka.png" alt="Komorka" width={120} height={120} />
-            </div>
+            <FlipCard
+              front={<Image src="/icons/mail.png" alt="Mail" width={150} height={150} />}
+              back={
+                <>
+                  <h3 className="text-amber-800 text-lg font-semibold mb-2">NAPISZ</h3>
+                  <p className="text-black text-xs break-all">kontakt.kreujemy@gmail.com</p>
+                </>
+              }
+            />
 
-
-            <div className="flex h-48 w-48 items-center justify-center rounded-full bg-white shadow-2xl mx-auto">
-              <Image src="/icons/lokalizacja.png" alt="Mapa" width={90} height={90} />
-            </div>
+            <FlipCard
+              front={<Image src="/icons/lokalizacja.png" alt="Mapa" width={90} height={90} />}
+              back={
+                <>
+                  <h3 className="text-amber-800 text-sm font-semibold mb-2 uppercase">UMÓW SIĘ<br />NA SPOTKANIE</h3>
+                  <p className="text-black text-xs">CAŁA POLSKA - ONLINE</p>
+                  <p className="text-black text-xs">ŚLĄSK - STACJONARNIE</p>
+                </>
+              }
+            />
           </div>
         </div >
       </div >
@@ -127,7 +153,7 @@ export default function Kontakt() {
         <div className="mx-auto flex w-6/7 max-w-[1200px] flex-col lg:flex-row relative">
 
           {/* Form */}
-          <div className="z-10 w-full">
+          <div className="z-50 w-full">
             <div className="rounded-[110px] border-2 border-black bg-white py-8 w-full">
               <form id="contact-form" onSubmit={handleSubmit} className="text-lg leading-relaxed text-black">
                 <ol className="px-8">
@@ -143,9 +169,13 @@ export default function Kontakt() {
                             className="sr-only"
                           />
                           <span
-                            className={`flex h-4 w-4 items-center justify-center rounded-full border border-black text-sm ${selectedServices.includes(item) ? "bg-black text-white" : "bg-transparent text-black"}`}
+                            className="flex h-4 w-4 items-center justify-center rounded-full border border-black"
                             aria-hidden="true"
-                          />
+                          >
+                            {selectedServices.includes(item) && (
+                              <Image src="/icons/wybor_czarny.png" alt="Wybrano" width={10} height={10} />
+                            )}
+                          </span>
                           <span>{item}</span>
                         </label>
                       ))}
@@ -198,7 +228,7 @@ export default function Kontakt() {
                     <p className="font-semibold">6. Rzut / rysunek z wymiarami.</p>
                   </li>
                 </ol>
-                <div className="mt-3 border-t-3 border-black pt-3 text-center text-sm tracking-[0.4em] uppercase w-full">
+                <div className={`mt-3 border-t-3 border-black pt-3 text-center text-sm tracking-[0.4em] uppercase w-full transition-colors duration-300 ${attachments.length > 0 ? 'text-red-600' : 'hover:text-red-600'}`}>
                   <label htmlFor="attachments" className="flex cursor-pointer items-center justify-center gap-2">
                     <input
                       id="attachments"
@@ -248,7 +278,7 @@ export default function Kontakt() {
           </div>
 
           {/* Image */}
-          <div className="w-md relative">
+          <div className="w-md relative z-30">
             <div className="hidden h-[778px] absolute -top-[100px] right-0 rounded-b-[110px] border-2 border-black bg-cover bg-center lg:flex lg:flex-col lg:justify-center w-md" style={{ backgroundImage: "url('/images/kontakt-glowne.jpg')" }}>
               <div className="flex h-full w-full items-center justify-center bg-white/50 rounded-b-[110px] border-2">
                 <div className="flex h-full w-2/3 items-center justify-end">
@@ -261,27 +291,29 @@ export default function Kontakt() {
           </div>
 
           {/* Text */}
-          <div className="flex-1 bg-white px-10 py-12 relative h-[450px]">
-            <h3 className="text-3xl font-semibold uppercase tracking-widest text-black">POROZMAWIAJMY O TWOICH POTRZEBACH</h3>
-            <p className="mt-6">
-              Dziękuję za zainteresowanie moimi usługami architektonicznymi. Po wysłaniu formularza skontaktuję się z Tobą, aby omówić Twoje potrzeby oraz oczekiwania. A następnie zaproponuję indywidualne rozwiązania, które będą najlepiej odpowiadać Twoim wymaganiom. Wierzę, że nasza współpraca pozwoli Ci zrealizować Twoje marzenia o idealnym projekcie architektonicznym.
-            </p>
-            <div className="absolute -bottom-30 left-2/6 -translate-x-1/2 translate-y-1/2 -z-20 mt-10 rounded-r-[80px] bg-amber-800 px-10 py-8 text-black w-xl mx-auto pl-52">
+          <div className="flex-1 relative h-[450px]">
+            <div className="absolute -bottom-30 left-2/6 -translate-x-1/2 translate-y-1/2 z-20 mt-10 rounded-r-[80px] bg-amber-800 px-10 py-8 text-black w-xl mx-auto pl-52">
               <h3 className="text-2xl font-semibold tracking-[0.4em]">ZOBACZ</h3>
               <div className="mt-6 space-y-4 text-sm tracking-[0.4em]">
-                <div className="flex items-center gap-4">
+                <Link href={socialLinks.instagram} target="_blank" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
                     <Image src="/icons/insta.png" alt="Instagram" width={24} height={24} />
                   </div>
                   <span>INSTAGRAM</span>
-                </div>
-                <div className="flex items-center gap-4">
+                </Link>
+                <Link href={socialLinks.facebook} target="_blank" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
                     <Image src="/icons/fb.png" alt="Facebook" width={24} height={24} />
                   </div>
                   <span>FACEBOOK</span>
-                </div>
+                </Link>
               </div>
+            </div>
+            <div className="bg-white px-10 py-12 relative z-30 h-full">
+              <h3 className="text-3xl font-semibold uppercase tracking-widest text-black">POROZMAWIAJMY O TWOICH POTRZEBACH</h3>
+              <p className="mt-6">
+                Dziękuję za zainteresowanie moimi usługami architektonicznymi. Po wysłaniu formularza skontaktuję się z Tobą, aby omówić Twoje potrzeby oraz oczekiwania. A następnie zaproponuję indywidualne rozwiązania, które będą najlepiej odpowiadać Twoim wymaganiom. Wierzę, że nasza współpraca pozwoli Ci zrealizować Twoje marzenia o idealnym projekcie architektonicznym.
+              </p>
             </div>
           </div>
         </div>

@@ -1,7 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import Hero from "@/components/Hero";
 import Contact from "@/components/Contact";
 import PackageOptionCard from "@/components/PackageOptionCard";
+import ConsultationButton from "@/components/ConsultationButton";
 
 const packageOptions = [
   {
@@ -98,7 +100,10 @@ export default function Home() {
       <div className="bg-amber-800" style={{ "borderTopRightRadius": "82px", "borderTopLeftRadius": "82px" }}>
         <div className="flex items-start justify-evenly w-6/7 mx-auto py-24 max-md:py-12">
           <div className="py-2 pb-8 rounded-4xl text-white border-2 border-white w-1/3 max-w-80 overflow-visible flex flex-col items-center justify-center">
-            <h2 className="text-md text-center mb-4">OFERTA</h2>
+            <Link href="/oferta" className="relative group flex items-center justify-center mb-4">
+              <h2 className="text-md text-center relative z-10">OFERTA</h2>
+              <div className="absolute w-14 h-14 rounded-full border border-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+            </Link>
             <ul className="list-none text-sm w-[130%] max-w-96 text-center flex flex-col gap-6">
               {offerItems.map((item, index) => (
                 <li key={index} className="bg-white text-black p-4 rounded-4xl">
@@ -131,9 +136,10 @@ export default function Home() {
                 <div className="border-2 border-amber-800 bg-amber-800 z-10 rounded-full w-22 h-22 absolute left-1/2 top-0 -translate-y-1/2 -translate-x-1/2" />
                 <div className="border-2 border-amber-800 bg-white z-10 rounded-b-full w-22 h-11 absolute left-1/2 top-0 -translate-x-1/2" />
                 {index === 1 && (
-                  <div className="absolute left-1/2 -top-3 -translate-y-1/2 -translate-x-1/2 z-20 flex items-center justify-center w-22 h-22">
-                    <h2 className="text-white text-s">O MNIE</h2>
-                  </div>
+                  <Link href="/o-mnie" className="absolute left-1/2 -top-3 -translate-y-1/2 -translate-x-1/2 z-20 flex items-center justify-center w-22 h-22 group">
+                    <h2 className="text-white text-s relative z-10">O MNIE</h2>
+                    <div className="absolute top-3 left-0 w-22 h-22 rounded-full border-2 border-transparent group-hover:border-black transition-colors duration-300" />
+                  </Link>
                 )}
                 <p>{card.text}</p>
                 <div className="my-4 w-30 h-30 flex items-center justify-center overflow-hidden mt-auto">
@@ -187,9 +193,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="w-full max-w-2xl mx-auto mt-12 flex justify-center">
-                <div className="border-2 border-white text-white rounded-4xl px-8 py-4">
-                  <span className="text-lg uppercase text-center">UMÓW SIĘ NA BEZPŁATNĄ KONSULTACJE</span>
-                </div>
+                <ConsultationButton />
               </div>
             </div>
           </div>

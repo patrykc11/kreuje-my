@@ -2,6 +2,7 @@ import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import PackageOptionCard from "@/components/PackageOptionCard";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Oferta() {
   const packageOptions = [
@@ -130,12 +131,12 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
         backgroundImageUrl="/images/oferta-glowne.jpg"
         fullWidth={true}
         leftElement={<h1 className="text-black text-6xl relative top-[-82px] ml-26">OFERTA</h1>}
-        rightElement={<div className="bg-amber-800 rounded-l-4xl w-2/5 text-left relative -right-50 top-[-82px] py-4 px-8">
+        rightElement={<Link href="/kontakt" className="bg-amber-800 rounded-l-4xl w-2/5 text-left relative -right-30 max-md:right-0 top-[-82px] py-4 px-8 block">
           <p className="text-md text-white">
             UMÓW SIĘ NA BEZPŁATNĄ
             KONSULTACJE
           </p>
-        </div>}
+        </Link>}
       />
 
       {/* Usługi section */}
@@ -193,10 +194,10 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
               </div>
             ))}
 
-            <div className="text-center text-black text-2xl w-full border-2 border-black rounded-full p-1 bg-white relative my-12 mb-20">
+            <Link href="/kontakt" className="block text-center text-black hover:text-white text-2xl w-full border-2 border-black rounded-full p-1 bg-white hover:bg-amber-800 relative my-12 mb-20 transition-colors duration-300">
               <h2>WYCEŃ SWÓJ PROJEKT</h2>
               <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full bg-amber-800 border-4 border-black w-24 h-24 -z-10" />
-            </div>
+            </Link>
 
 
           </div>
