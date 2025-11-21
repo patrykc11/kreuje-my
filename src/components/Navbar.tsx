@@ -1,8 +1,20 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { ReactNode } from 'react'
 
 interface NavbarProps {
   darkTheme?: boolean;
+}
+
+const NavLink = ({ href, children, darkTheme }: { href: string, children: ReactNode, darkTheme: boolean }) => {
+  const borderColor = darkTheme ? 'border-white' : 'border-amber-950';
+
+  return (
+    <Link href={href} className="relative group flex items-center justify-center">
+      <span className="relative z-10">{children}</span>
+      <div className={`absolute w-14 h-14 rounded-full border ${borderColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2`} />
+    </Link>
+  )
 }
 
 const Navbar = ({ darkTheme = false }: NavbarProps) => {
@@ -17,11 +29,11 @@ const Navbar = ({ darkTheme = false }: NavbarProps) => {
       {/* Navbar links */}
       <span>
         <div className={`flex items-center gap-8 ${linkTextColor}`}>
-          <Link href="/">HOME</Link>
-          <Link href="/o-mnie">O MNIE</Link>
-          <Link href="/oferta">OFERTA</Link>
-          <Link href="/projekty">PROJEKTY</Link>
-          <Link href="/kontakt">KONTAKT</Link>
+          <NavLink href="/" darkTheme={darkTheme}>HOME</NavLink>
+          <NavLink href="/o-mnie" darkTheme={darkTheme}>O MNIE</NavLink>
+          <NavLink href="/oferta" darkTheme={darkTheme}>OFERTA</NavLink>
+          <NavLink href="/projekty" darkTheme={darkTheme}>PROJEKTY</NavLink>
+          <NavLink href="/kontakt" darkTheme={darkTheme}>KONTAKT</NavLink>
         </div>
       </span>
       {/* Navbar icons */}
