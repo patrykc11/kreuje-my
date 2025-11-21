@@ -18,7 +18,7 @@ export default async function Projekty() {
 
       {/* Projekty section */}
       <div className="bg-amber-800 relative top-[-82px]" style={{ "borderRadius": "82px" }}>
-        <div className="py-12">
+        <div className="py-24 max-md:py-12">
           <div className="w-6/7 mx-auto max-w-7xl px-4">
             {projects.map((project, index) => (
               <ProjectSection key={index} project={project} />

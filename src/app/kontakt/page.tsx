@@ -96,7 +96,7 @@ export default function Kontakt() {
       <Hero
         backgroundImageUrl="/images/kontakt-glowne.jpg"
         leftElement={
-          <div className="bg-white absolute top-[-164px] left-[-250px] rounded-r-full px-16 w-xl text-right">
+          <div className="bg-white absolute bottom-30 left-[-200px] rounded-r-full px-16 w-xl text-right">
             <h1 className="text-black text-6xl">KONTAKT</h1>
           </div>}
         rightElement={<></>}
@@ -105,8 +105,8 @@ export default function Kontakt() {
 
       {/* Icons section */}
       <div className="bg-amber-800 relative top-[-82px] mx-auto z-40" style={{ borderRadius: "82px" }} >
-        <div className="py-14">
-          <div className="grid grid-cols-3 items-center justify-center w-6/7 mx-auto gap-8 relative">
+        <div className="py-24 max-md:py-12">
+          <div className="grid grid-cols-3 items-center justify-center w-5/7 max-lg:w-6/7 mx-auto gap-8 relative">
             <div className="flex h-48 w-48 items-center justify-center rounded-full bg-white shadow-2xl mx-auto">
               <Image src="/icons/mail.png" alt="Mail" width={150} height={150} />
             </div>

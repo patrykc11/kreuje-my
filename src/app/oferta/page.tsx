@@ -140,7 +140,7 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
 
       {/* Usługi section */}
       <div className="bg-amber-800 relative top-[-82px]" style={{ "borderRadius": "82px" }}>
-        <div className="py-12">
+        <div className="py-24 max-md:py-12">
           <div className="w-6/7 mx-auto gap-8 relative max-w-4xl">
             <div className="text-center text-white text-2xl mb-6 w-full border-2 border-white rounded-full p-1"><h2>USŁUGI</h2></div>
             <div className="grid grid-cols-2 mx-auto justify-center items-stretch gap-8">

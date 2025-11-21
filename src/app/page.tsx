@@ -96,7 +96,7 @@ export default function Home() {
       />
       {/* Offer section */}
       <div className="bg-amber-800" style={{ "borderTopRightRadius": "82px", "borderTopLeftRadius": "82px" }}>
-        <div className="flex items-start justify-evenly w-6/7 mx-auto py-12">
+        <div className="flex items-start justify-evenly w-6/7 mx-auto py-24 max-md:py-12">
           <div className="py-2 pb-8 rounded-4xl text-white border-2 border-white w-1/3 max-w-80 overflow-visible flex flex-col items-center justify-center">
             <h2 className="text-md text-center mb-4">OFERTA</h2>
             <ul className="list-none text-sm w-[130%] max-w-96 text-center flex flex-col gap-6">
@@ -125,7 +125,7 @@ export default function Home() {
       {/* About section */}
       <div className="bg-amber-800">
         <div className="bg-white p-12" style={{ "borderTopRightRadius": "82px", "borderTopLeftRadius": "82px" }}>
-          <div className="flex items-stretch justify-center w-6/7 mx-auto py-12">
+          <div className="flex items-stretch justify-center w-6/7 mx-auto py-24 max-md:py-12">
             {aboutCards.flatMap((card, index) => [
               <div key={`card-${index}`} className="border-2 border-amber-800 z-20 bg-white rounded-4xl p-4 text-center flex flex-col items-center justify-between w-1/5 min-w-48 pt-18 relative self-stretch">
                 <div className="border-2 border-amber-800 bg-amber-800 z-10 rounded-full w-22 h-22 absolute left-1/2 top-0 -translate-y-1/2 -translate-x-1/2" />
@@ -152,8 +152,8 @@ export default function Home() {
 
       {/* Trust badge section */}
       <div className="bg-white">
-        <div className="bg-amber-800 p-12" style={{ "borderRadius": "82px" }}>
-          <div className="w-6/7 max-w-7xl mx-auto flex gap-8 items-start justify-evenly">
+        <div className="bg-amber-800 px-12 py-24 max-md:py-12" style={{ "borderRadius": "82px" }}>
+          <div className="w-6/7 max-w-7xl mx-auto flex gap-8 items-start justify-evenly ">
             {/* Left column - Why trust me */}
             <div className="flex-1 max-w-md flex flex-col gap-6">
               <div className="border-2 border-white text-white rounded-4xl px-4 py-3 w-xs mx-auto">
