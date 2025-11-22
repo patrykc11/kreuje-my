@@ -86,9 +86,9 @@ const Contact = ({
           <h2 className={`text-2xl text-center mb-4 ${textColor}`}>{title}</h2>
           {contactItems.map((item, index) => {
             const content = (
-              <div className={`group flex items-center justify-start gap-4 border ${liBgColor} rounded-4xl pr-8 transition-all duration-300 ${item.href ? 'cursor-pointer hover:opacity-80 hover:scale-105 hover:shadow-lg' : ''}`}>
-                <div className="w-8 h-8 bg-amber-800 rounded-full p-2 flex items-center justify-center transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">
-                  <Image src={item.icon} alt={item.alt} width={24} height={24} className="transition-transform duration-300 group-hover:scale-110" />
+              <div className={`flex items-center justify-start gap-4 border ${liBgColor} rounded-4xl pr-8 ${item.href ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''}`}>
+                <div className="w-8 h-8 bg-amber-800 rounded-full p-2 flex items-center justify-center">
+                  <Image src={item.icon} alt={item.alt} width={24} height={24} />
                 </div>
                 <div className="text-center w-full">
                   <p>{item.text}</p>

@@ -4,7 +4,6 @@ import Hero from "@/components/Hero";
 import Contact from "@/components/Contact";
 import PackageOptionCard from "@/components/PackageOptionCard";
 import ConsultationButton from "@/components/ConsultationButton";
-import ScrollReveal from "@/components/ScrollReveal";
 
 const packageOptions = [
   {
@@ -107,11 +106,9 @@ export default function Home() {
             </Link>
             <ul className="list-none text-sm w-[130%] max-w-96 text-center flex flex-col gap-6">
               {offerItems.map((item, index) => (
-                <ScrollReveal key={index} animation="fade-in-right" delay={index * 100}>
-                  <li className="bg-white text-black p-4 rounded-4xl transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-                    {item}
-                  </li>
-                </ScrollReveal>
+                <li key={index} className="bg-white text-black p-4 rounded-4xl">
+                  {item}
+                </li>
               ))}
             </ul>
           </div>
@@ -120,12 +117,11 @@ export default function Home() {
               <h2 className="text-md">KOMPLEKSOWY PROJEKT WNĘTRZA</h2>
             </div>
             {packageOptions.map((option, index) => (
-              <ScrollReveal key={index} animation="fade-in-left" delay={index * 150}>
-                <PackageOptionCard
-                  title={option.title}
-                  description={option.description}
-                />
-              </ScrollReveal>
+              <PackageOptionCard
+                key={index}
+                title={option.title}
+                description={option.description}
+              />
             ))}
           </div>
         </div>
@@ -136,8 +132,7 @@ export default function Home() {
         <div className="bg-white p-12" style={{ "borderTopRightRadius": "82px", "borderTopLeftRadius": "82px" }}>
           <div className="flex items-stretch justify-center w-6/7 mx-auto py-24 max-md:py-12">
             {aboutCards.flatMap((card, index) => [
-              <ScrollReveal key={`card-${index}`} animation="scale-in" delay={index * 200}>
-                <div className="border-2 border-amber-800 z-20 bg-white rounded-4xl p-4 text-center flex flex-col items-center justify-between w-1/5 min-w-48 pt-18 relative self-stretch transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <div key={`card-${index}`} className="border-2 border-amber-800 z-20 bg-white rounded-4xl p-4 text-center flex flex-col items-center justify-between w-1/5 min-w-48 pt-18 relative self-stretch">
                 <div className="border-2 border-amber-800 bg-amber-800 z-10 rounded-full w-22 h-22 absolute left-1/2 top-0 -translate-y-1/2 -translate-x-1/2" />
                 <div className="border-2 border-amber-800 bg-white z-10 rounded-b-full w-22 h-11 absolute left-1/2 top-0 -translate-x-1/2" />
                 {index === 1 && (
@@ -150,8 +145,7 @@ export default function Home() {
                 <div className="my-4 w-30 h-30 flex items-center justify-center overflow-hidden mt-auto">
                   <Image src={card.image} alt={card.alt} width={150} height={150} className="max-w-full max-h-full w-auto h-auto object-contain" />
                 </div>
-                </div>
-              </ScrollReveal>,
+              </div>,
               ...(index < aboutCards.length - 1 ? [
                 <div key={`line-${index}`} className="relative flex items-center z-10 w-16">
                   <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-amber-800 -translate-y-1/2"></div>
@@ -173,13 +167,11 @@ export default function Home() {
               </div>
               <div className="flex flex-col gap-4">
                 {trustReasons.map((reason, index) => (
-                  <ScrollReveal key={index} animation="fade-in-right" delay={index * 150}>
-                    <div className="bg-white border-2 border-amber-800 rounded-4xl p-6 relative w-xs mx-auto transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                      <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 bg-amber-800 rounded-full border-2 border-white transition-transform duration-300 group-hover:scale-110"></div>
-                      <h3 className="font-bold text-sm uppercase mb-2 ml-4">{reason.title}</h3>
-                      <p className="text-sm ml-4">{reason.description}</p>
-                    </div>
-                  </ScrollReveal>
+                  <div key={index} className="bg-white border-2 border-amber-800 rounded-4xl p-6 relative w-xs mx-auto">
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 bg-amber-800 rounded-full border-2 border-white"></div>
+                    <h3 className="font-bold text-sm uppercase mb-2 ml-4">{reason.title}</h3>
+                    <p className="text-sm ml-4">{reason.description}</p>
+                  </div>
                 ))}
               </div>
             </div>
@@ -193,12 +185,10 @@ export default function Home() {
                 <div className="absolute top-13 bottom-8 w-1 bg-amber-800 -translate-x-1/2 z-0"></div>
                 <div className="flex flex-col gap-8 relative">
                   {cooperationStages.map((stage, index) => (
-                    <ScrollReveal key={index} animation="fade-in-left" delay={index * 150}>
-                      <div className="relative flex items-center min-h-[60px] transition-all duration-300 hover:translate-x-2">
-                        <div className={`absolute left-0 -translate-x-1/2 w-8 h-8 rounded-full border-2 border-amber-800 ${stage.isFilled ? 'bg-amber-800' : 'bg-white'} z-10 transition-all duration-300 group-hover:scale-125`}></div>
-                        <p className={`text-sm 'mr-auto pl-12 text-left' w-3/4`}>{stage.text}</p>
-                      </div>
-                    </ScrollReveal>
+                    <div key={index} className="relative flex items-center min-h-[60px]">
+                      <div className={`absolute left-0 -translate-x-1/2 w-8 h-8 rounded-full border-2 border-amber-800 ${stage.isFilled ? 'bg-amber-800' : 'bg-white'} z-10`}></div>
+                      <p className={`text-sm 'mr-auto pl-12 text-left' w-3/4`}>{stage.text}</p>
+                    </div>
                   ))}
                 </div>
               </div>

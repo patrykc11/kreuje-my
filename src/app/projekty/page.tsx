@@ -2,7 +2,6 @@ import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import ProjectSection from "@/components/ProjectSection";
 import { Project, getProjects } from "@/lib/projects";
-import ScrollReveal from "@/components/ScrollReveal";
 
 // Force dynamic rendering to avoid including all images in build output
 export const dynamic = 'force-dynamic';
@@ -59,9 +58,7 @@ export default async function Projekty() {
           <div className="w-6/7 mx-auto max-w-7xl px-4">
             {projects && projects.length > 0 ? (
               projects.map((project, index) => (
-                <ScrollReveal key={project.folderName || index} animation="fade-in-up" delay={index * 150}>
-                  <ProjectSection project={project} />
-                </ScrollReveal>
+                <ProjectSection key={project.folderName || index} project={project} />
               ))
             ) : (
               <div className="text-center text-white py-12">
