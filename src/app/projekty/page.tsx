@@ -1,13 +1,36 @@
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import ProjectSection from "@/components/ProjectSection";
-import { getProjects } from "@/lib/projects";
+import { Project } from "@/lib/projects";
 
 // Force dynamic rendering to avoid including all images in build output
 export const dynamic = 'force-dynamic';
 
+async function fetchProjects(): Promise<Project[]> {
+  // Construct base URL for API call
+  // In Vercel, use VERCEL_URL or construct from request
+  const baseUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  
+  try {
+    const res = await fetch(`${baseUrl}/api/projects`, {
+      cache: 'no-store',
+    });
+    
+    if (!res.ok) {
+      throw new Error(`Failed to fetch projects: ${res.status}`);
+    }
+    
+    return res.json();
+  } catch (error) {
+    console.error('Error fetching projects:', error);
+    throw error;
+  }
+}
+
 export default async function Projekty() {
-  const projects = await getProjects();
+  const projects = await fetchProjects();
 
   return (
     <div className="h-full w-full">
