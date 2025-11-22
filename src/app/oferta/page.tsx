@@ -1,8 +1,11 @@
+'use client';
+
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import PackageOptionCard from "@/components/PackageOptionCard";
 import Image from "next/image";
 import Link from "next/link";
+import ScrollSection from "@/components/ScrollSection";
 
 export default function Oferta() {
   const packageOptions = [
@@ -131,10 +134,9 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
         backgroundImageUrl="/images/oferta-glowne.jpg"
         fullWidth={true}
         leftElement={<h1 className="text-black text-6xl relative top-[-82px] ml-26">OFERTA</h1>}
-        rightElement={<Link href="/kontakt" className="bg-amber-800 rounded-l-4xl w-2/5 text-left relative -right-30 max-md:right-0 top-[-82px] py-4 px-8 block">
+        rightElement={<Link href="/kontakt" className="bg-amber-800 rounded-4xl w-full text-center relative top-[-82px] py-6 px-8 block flex items-center justify-center">
           <p className="text-md text-white">
-            UMÓW SIĘ NA BEZPŁATNĄ
-            KONSULTACJE
+            UMÓW SIĘ NA BEZPŁATNĄ KONSULTACJE
           </p>
         </Link>}
       />
@@ -160,49 +162,58 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
 
 
       {/* Projekty section */}
-      <div className="">
-        <div className="w-6/7 mx-auto gap-8 relative max-w-4xl">
-          <div className="text-center text-black text-2xl mb-6 w-full border-2 border-black rounded-full p-1"><h2>KOMPLEKSOWY PROJEKT WNĘTRZA</h2></div>
-          <div className="flex flex-col mx-auto justify-center items-stretch gap-8">
-
-            {detailedPackages.map((pkg, pkgIndex) => (
-              <div key={pkg.title} className="border-2 border-black rounded-4xl p-4 px-8 grid grid-cols-2 gap-8">
-                <div className="flex flex-col justify-center gap-4 w-2/3 min-w-48 max-w-2xs">
-                  <div className="relative">
-                    <h3 className="text-2xl">{pkg.title}</h3>
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-15 rounded-full bg-amber-800 border-2 border-black w-12 h-12" />
-                  </div>
-                  <p className="text-amber-800 whitespace-pre-line">{pkg.description}</p>
-                </div>
-                <div className="w-full min-w-48 max-w-md">
-                  <ul className="list-none flex flex-col gap-2">
-                    {pkg.items.map((item, index) => {
-                      const isNewItem = pkgIndex === 0 ? false : !pkg.previousItems.includes(item);
-                      return (
-                        <li key={index} className="flex items-start gap-3">
-                          <div
-                            className={`rounded-full p-1.5 shrink-0 mt-0.5 border ${isNewItem ? "bg-white border-black" : "bg-amber-800 border-amber-800"}`}
-                          >
-                            <Image src="/icons/wybor_czarny.png" alt="" width={16} height={16} />
-                          </div>
-                          <span>{item}</span>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </div >
+      <ScrollSection animationType="fade-up">
+        <div className="">
+          <div className="w-6/7 mx-auto gap-8 relative max-w-4xl">
+            <ScrollSection animationType="fade-up" delay={0}>
+              <div className="text-center text-black text-2xl mb-6 w-full border-2 border-black rounded-full p-1">
+                <h2>KOMPLEKSOWY PROJEKT WNĘTRZA</h2>
               </div>
-            ))}
+            </ScrollSection>
+            <div className="flex flex-col mx-auto justify-center items-stretch gap-8">
 
-            <Link href="/kontakt" className="block text-center text-black hover:text-white text-2xl w-full border-2 border-black rounded-full p-1 bg-white hover:bg-amber-800 relative my-12 mb-20 transition-colors duration-300">
-              <h2>WYCEŃ SWÓJ PROJEKT</h2>
-              <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full bg-amber-800 border-4 border-black w-24 h-24 -z-10" />
-            </Link>
+              {detailedPackages.map((pkg, pkgIndex) => (
+                <ScrollSection key={pkg.title} animationType="fade-up" delay={200 + pkgIndex * 200}>
+                  <div className="border-2 border-black rounded-4xl p-4 px-8 grid grid-cols-2 gap-8 hover-lift transition-all duration-300 group">
+                    <div className="flex flex-col justify-center gap-4 w-2/3 min-w-48 max-w-2xs">
+                      <div className="relative">
+                        <h3 className="text-2xl">{pkg.title}</h3>
+                        <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-15 rounded-full bg-amber-800 border-2 border-black w-12 h-12 transition-transform duration-300 group-hover:scale-110" />
+                      </div>
+                      <p className="text-amber-800 whitespace-pre-line">{pkg.description}</p>
+                    </div>
+                    <div className="w-full min-w-48 max-w-md">
+                      <ul className="list-none flex flex-col gap-2">
+                        {pkg.items.map((item, index) => {
+                          const isNewItem = pkgIndex === 0 ? false : !pkg.previousItems.includes(item);
+                          return (
+                            <li key={index} className="flex items-start gap-3 group/item hover:translate-x-1 transition-all duration-300">
+                              <div
+                                className={`rounded-full p-1.5 shrink-0 mt-0.5 border transition-transform duration-300 group-hover/item:scale-110 ${isNewItem ? "bg-white border-black" : "bg-amber-800 border-amber-800"}`}
+                              >
+                                <Image src="/icons/wybor_czarny.png" alt="" width={16} height={16} />
+                              </div>
+                              <span className="transition-colors duration-300 group-hover/item:text-amber-800">{item}</span>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    </div >
+                  </div>
+                </ScrollSection>
+              ))}
 
+              <ScrollSection animationType="scale" delay={800}>
+                <Link href="/kontakt" className="block text-center text-black hover:text-white text-2xl w-full border-2 border-black rounded-full p-1 bg-white hover:bg-amber-800 relative my-12 mb-20 transition-all duration-300 hover-scale">
+                  <h2>WYCEŃ SWÓJ PROJEKT</h2>
+                  <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full bg-amber-800 border-4 border-black w-24 h-24 -z-10" />
+                </Link>
+              </ScrollSection>
 
+            </div>
           </div>
         </div>
-      </div>
+      </ScrollSection>
 
       <Contact
         photoUrl="/images/oferta-kontakt.jpg"
