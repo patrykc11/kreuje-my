@@ -2,6 +2,7 @@
 
 import Hero from "@/components/Hero";
 import FlipCard from "@/components/FlipCard";
+import ScrollReveal from "@/components/ScrollReveal";
 import Image from "next/image";
 import Link from "next/link";
 import { ChangeEvent, FormEvent, useRef, useState } from "react";
@@ -115,36 +116,42 @@ export default function Kontakt() {
       <div className="bg-amber-800 relative top-[-82px] mx-auto z-40" style={{ borderRadius: "82px" }} >
         <div className="py-24 max-md:py-12">
           <div className="grid grid-cols-3 items-center justify-center w-5/7 max-lg:w-6/7 mx-auto gap-8 relative">
-            <FlipCard
-              front={<Image src="/icons/komorka.png" alt="Komorka" width={120} height={120} />}
-              back={
-                <>
-                  <h3 className="text-amber-800 text-lg font-semibold mb-2">ZADZWOŃ</h3>
-                  <p className="text-black text-sm">+48 690 143 393</p>
-                </>
-              }
-            />
+            <ScrollReveal animation="fade-in-left" delay={0}>
+              <FlipCard
+                front={<Image src="/icons/komorka.png" alt="Komorka" width={120} height={120} />}
+                back={
+                  <>
+                    <h3 className="text-amber-800 text-lg font-semibold mb-2">ZADZWOŃ</h3>
+                    <p className="text-black text-sm">+48 690 143 393</p>
+                  </>
+                }
+              />
+            </ScrollReveal>
 
-            <FlipCard
-              front={<Image src="/icons/mail.png" alt="Mail" width={150} height={150} />}
-              back={
-                <>
-                  <h3 className="text-amber-800 text-lg font-semibold mb-2">NAPISZ</h3>
-                  <p className="text-black text-xs break-all">kontakt.kreujemy@gmail.com</p>
-                </>
-              }
-            />
+            <ScrollReveal animation="scale-in" delay={150}>
+              <FlipCard
+                front={<Image src="/icons/mail.png" alt="Mail" width={150} height={150} />}
+                back={
+                  <>
+                    <h3 className="text-amber-800 text-lg font-semibold mb-2">NAPISZ</h3>
+                    <p className="text-black text-xs break-all">kontakt.kreujemy@gmail.com</p>
+                  </>
+                }
+              />
+            </ScrollReveal>
 
-            <FlipCard
-              front={<Image src="/icons/lokalizacja.png" alt="Mapa" width={90} height={90} />}
-              back={
-                <>
-                  <h3 className="text-amber-800 text-sm font-semibold mb-2 uppercase">UMÓW SIĘ<br />NA SPOTKANIE</h3>
-                  <p className="text-black text-xs">CAŁA POLSKA - ONLINE</p>
-                  <p className="text-black text-xs">ŚLĄSK - STACJONARNIE</p>
-                </>
-              }
-            />
+            <ScrollReveal animation="fade-in-right" delay={300}>
+              <FlipCard
+                front={<Image src="/icons/lokalizacja.png" alt="Mapa" width={90} height={90} />}
+                back={
+                  <>
+                    <h3 className="text-amber-800 text-sm font-semibold mb-2 uppercase">UMÓW SIĘ<br />NA SPOTKANIE</h3>
+                    <p className="text-black text-xs">CAŁA POLSKA - ONLINE</p>
+                    <p className="text-black text-xs">ŚLĄSK - STACJONARNIE</p>
+                  </>
+                }
+              />
+            </ScrollReveal>
           </div>
         </div >
       </div >
@@ -160,24 +167,26 @@ export default function Kontakt() {
                   <li className="mb-4">
                     <p className="font-semibold">1. Jakim zakresem usług jesteś zainteresowany/a?</p>
                     <div className="mt-3 pl-4">
-                      {serviceOptions.map((item) => (
-                        <label key={item} className="flex cursor-pointer items-center gap-3">
-                          <input
-                            type="checkbox"
-                            checked={selectedServices.includes(item)}
-                            onChange={() => toggleService(item)}
-                            className="sr-only"
-                          />
-                          <span
-                            className="flex h-4 w-4 items-center justify-center rounded-full border border-black"
-                            aria-hidden="true"
-                          >
-                            {selectedServices.includes(item) && (
-                              <Image src="/icons/wybor_czarny.png" alt="Wybrano" width={10} height={10} />
-                            )}
-                          </span>
-                          <span>{item}</span>
-                        </label>
+                      {serviceOptions.map((item, index) => (
+                        <ScrollReveal key={item} animation="fade-in-right" delay={index * 50}>
+                          <label className="flex cursor-pointer items-center gap-3 transition-all duration-300 hover:scale-105 hover:translate-x-2">
+                            <input
+                              type="checkbox"
+                              checked={selectedServices.includes(item)}
+                              onChange={() => toggleService(item)}
+                              className="sr-only"
+                            />
+                            <span
+                              className="flex h-4 w-4 items-center justify-center rounded-full border border-black transition-all duration-300 group-hover:scale-125"
+                              aria-hidden="true"
+                            >
+                              {selectedServices.includes(item) && (
+                                <Image src="/icons/wybor_czarny.png" alt="Wybrano" width={10} height={10} className="transition-transform duration-300 animate-scale-in" />
+                              )}
+                            </span>
+                            <span>{item}</span>
+                          </label>
+                        </ScrollReveal>
                       ))}
                     </div>
                   </li>

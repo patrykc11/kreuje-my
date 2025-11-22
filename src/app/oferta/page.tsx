@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import PackageOptionCard from "@/components/PackageOptionCard";
 import Image from "next/image";
 import Link from "next/link";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Oferta() {
   const packageOptions = [
@@ -146,12 +147,14 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
             <div className="text-center text-white text-2xl mb-6 w-full border-2 border-white rounded-full p-1"><h2>USŁUGI</h2></div>
             <div className="grid grid-cols-2 mx-auto justify-center items-stretch gap-8">
               {packageOptions.map((option, index) => (
-                <div className="max-w-80 mx-auto h-full flex" key={index}>
-                  <PackageOptionCard
-                    title={option.title}
-                    description={option.description}
-                  />
-                </div>
+                <ScrollReveal key={index} animation="scale-in" delay={index * 150}>
+                  <div className="max-w-80 mx-auto h-full flex">
+                    <PackageOptionCard
+                      title={option.title}
+                      description={option.description}
+                    />
+                  </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -166,7 +169,8 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
           <div className="flex flex-col mx-auto justify-center items-stretch gap-8">
 
             {detailedPackages.map((pkg, pkgIndex) => (
-              <div key={pkg.title} className="border-2 border-black rounded-4xl p-4 px-8 grid grid-cols-2 gap-8">
+              <ScrollReveal key={pkg.title} animation="fade-in-up" delay={pkgIndex * 200}>
+                <div className="border-2 border-black rounded-4xl p-4 px-8 grid grid-cols-2 gap-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
                 <div className="flex flex-col justify-center gap-4 w-2/3 min-w-48 max-w-2xs">
                   <div className="relative">
                     <h3 className="text-2xl">{pkg.title}</h3>
@@ -191,7 +195,8 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
                     })}
                   </ul>
                 </div >
-              </div>
+                </div>
+              </ScrollReveal>
             ))}
 
             <Link href="/kontakt" className="block text-center text-black hover:text-white text-2xl w-full border-2 border-black rounded-full p-1 bg-white hover:bg-amber-800 relative my-12 mb-20 transition-colors duration-300">

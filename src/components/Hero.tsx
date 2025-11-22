@@ -47,8 +47,12 @@ const Hero = ({
       {/* Hero overlay */}
       <div className={`z-10 flex flex-col items-center justify-center h-full ${fullWidth ? 'w-full' : 'w-6/7'} mx-auto my-8`}>
         <div className="flex items-center justify-between w-full px-8">
-          {leftElement}
-          {rightElement}
+          <div className="animate-fade-in-left">
+            {leftElement}
+          </div>
+          <div className="animate-fade-in-right">
+            {rightElement}
+          </div>
         </div>
       </div>
     </div>

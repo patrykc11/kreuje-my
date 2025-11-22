@@ -45,19 +45,19 @@ const Navbar = ({ darkTheme = false }: NavbarProps) => {
       </span>
       {/* Navbar icons */}
       <div className="flex items-center gap-5">
-        <Link href={socialLinks.whatsapp} target="_blank">
-          <div className={`w-10 h-10 ${iconBgColor} rounded-full p-2 flex items-center justify-center`}>
-            <Image src={whatsappIcon} alt="Whats App" width={24} height={24} />
+        <Link href={socialLinks.whatsapp} target="_blank" className="group">
+          <div className={`w-10 h-10 ${iconBgColor} rounded-full p-2 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-12`}>
+            <Image src={whatsappIcon} alt="Whats App" width={24} height={24} className="transition-transform duration-300 group-hover:scale-110" />
           </div>
         </Link>
-        <Link href={socialLinks.facebook} target="_blank">
-          <div className={`w-10 h-10 ${iconBgColor} rounded-full p-2 flex items-center justify-center`}>
-            <Image src={fbIcon} alt="Facebook" width={24} height={24} />
+        <Link href={socialLinks.facebook} target="_blank" className="group">
+          <div className={`w-10 h-10 ${iconBgColor} rounded-full p-2 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-12`}>
+            <Image src={fbIcon} alt="Facebook" width={24} height={24} className="transition-transform duration-300 group-hover:scale-110" />
           </div>
         </Link>
-        <Link href={socialLinks.instagram} target="_blank">
-          <div className={`w-10 h-10 ${iconBgColor} rounded-full p-2 flex items-center justify-center`}>
-            <Image src={instaIcon} alt="Instagram" width={24} height={24} />
+        <Link href={socialLinks.instagram} target="_blank" className="group">
+          <div className={`w-10 h-10 ${iconBgColor} rounded-full p-2 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-12`}>
+            <Image src={instaIcon} alt="Instagram" width={24} height={24} className="transition-transform duration-300 group-hover:scale-110" />
           </div>
         </Link>
       </div>

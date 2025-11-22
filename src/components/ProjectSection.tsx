@@ -21,15 +21,15 @@ const ProjectSection = ({ project }: ProjectSectionProps) => {
           {project.images.map((image, index) => (
             <div
               key={index}
-              className="shrink-0 relative group cursor-pointer"
+              className="shrink-0 relative group cursor-pointer transition-all duration-300 hover:scale-105"
             >
-              <div className="w-56 h-80 rounded-[3rem] overflow-hidden bg-white shadow-xl relative">
+              <div className="w-56 h-80 rounded-[3rem] overflow-hidden bg-white shadow-xl relative transition-all duration-300 group-hover:shadow-2xl group-hover:border-2 group-hover:border-amber-800">
                 <Image
                   src={image.path}
                   alt={`${project.name} - ${image.filename}`}
                   width={224}
                   height={320}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   style={{ objectFit: 'cover', objectPosition: 'center', height: '100%', width: '100%' }}
                   fill={false}
                 />
