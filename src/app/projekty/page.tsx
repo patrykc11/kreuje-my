@@ -19,7 +19,10 @@ async function fetchProjects(): Promise<Project[]> {
     
     if (res.ok) {
       const data = await res.json();
-      return data;
+      // Ensure we have valid data
+      if (Array.isArray(data) && data.length > 0) {
+        return data;
+      }
     }
   } catch (error) {
     console.error('Error fetching projects from API, falling back to direct call:', error);
@@ -28,7 +31,8 @@ async function fetchProjects(): Promise<Project[]> {
   // Fallback: use direct function call if API route fails
   // This ensures the page always works
   try {
-    return await getProjects();
+    const projects = await getProjects();
+    return Array.isArray(projects) ? projects : [];
   } catch (error) {
     console.error('Error getting projects directly:', error);
     return [];
@@ -52,9 +56,15 @@ export default async function Projekty() {
       <div className="bg-amber-800 relative top-[-82px]" style={{ "borderRadius": "82px" }}>
         <div className="py-24 max-md:py-12">
           <div className="w-6/7 mx-auto max-w-7xl px-4">
-            {projects.map((project, index) => (
-              <ProjectSection key={index} project={project} />
-            ))}
+            {projects && projects.length > 0 ? (
+              projects.map((project, index) => (
+                <ProjectSection key={project.folderName || index} project={project} />
+              ))
+            ) : (
+              <div className="text-center text-white py-12">
+                <p>Ładowanie projektów...</p>
+              </div>
+            )}
           </div>
         </div>
       </div>
