@@ -1,31 +1,37 @@
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import ProjectSection from "@/components/ProjectSection";
-import { Project } from "@/lib/projects";
+import { Project, getProjects } from "@/lib/projects";
 
 // Force dynamic rendering to avoid including all images in build output
 export const dynamic = 'force-dynamic';
 
 async function fetchProjects(): Promise<Project[]> {
-  // Construct base URL for API call
-  // In Vercel, use VERCEL_URL or construct from request
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-  
+  // Try to fetch from API route first (for separation and smaller function size)
   try {
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}`
+      : process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    
     const res = await fetch(`${baseUrl}/api/projects`, {
       cache: 'no-store',
     });
     
-    if (!res.ok) {
-      throw new Error(`Failed to fetch projects: ${res.status}`);
+    if (res.ok) {
+      const data = await res.json();
+      return data;
     }
-    
-    return res.json();
   } catch (error) {
-    console.error('Error fetching projects:', error);
-    throw error;
+    console.error('Error fetching projects from API, falling back to direct call:', error);
+  }
+  
+  // Fallback: use direct function call if API route fails
+  // This ensures the page always works
+  try {
+    return await getProjects();
+  } catch (error) {
+    console.error('Error getting projects directly:', error);
+    return [];
   }
 }
 
