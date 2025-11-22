@@ -4,28 +4,33 @@ interface ContactItem {
   icon: string;
   text: string;
   alt: string;
+  href?: string;
 }
 
 const defaultContactItems: ContactItem[] = [
   {
     icon: "/icons/komorka_biala.png",
     text: "+48 690 143 393",
-    alt: "Telefon"
+    alt: "Telefon",
+    href: "tel:+48690143393"
   },
   {
     icon: "/icons/mail_bialy.png",
     text: "kontakt.kreujemy@gmail.com",
-    alt: "Email"
+    alt: "Email",
+    href: "mailto:kontakt.kreujemy@gmail.com"
   },
   {
     icon: "/icons/fb_bialy.png",
     text: "@Kreuje.MY",
-    alt: "Facebook"
+    alt: "Facebook",
+    href: "https://www.facebook.com/p/KreujeMY-61551211920272/"
   },
   {
     icon: "/icons/insta_bialy.png",
     text: "@kreuje.my",
-    alt: "Instagram"
+    alt: "Instagram",
+    href: "https://www.instagram.com/kreuje.my"
   }
 ];
 
@@ -79,16 +84,34 @@ const Contact = ({
         </div>
         <div className="flex flex-col gap-4">
           <h2 className={`text-2xl text-center mb-4 ${textColor}`}>{title}</h2>
-          {contactItems.map((item, index) => (
-            <div key={index} className={`flex items-center justify-start gap-4 border ${liBgColor} rounded-4xl pr-8`}>
-              <div className="w-8 h-8 bg-amber-800 rounded-full p-2 flex items-center justify-center">
-                <Image src={item.icon} alt={item.alt} width={24} height={24} />
+          {contactItems.map((item, index) => {
+            const content = (
+              <div className={`flex items-center justify-start gap-4 border ${liBgColor} rounded-4xl pr-8 ${item.href ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''}`}>
+                <div className="w-8 h-8 bg-amber-800 rounded-full p-2 flex items-center justify-center">
+                  <Image src={item.icon} alt={item.alt} width={24} height={24} />
+                </div>
+                <div className="text-center w-full">
+                  <p>{item.text}</p>
+                </div>
               </div>
-              <div className="text-center w-full">
-                <p>{item.text}</p>
+            );
+
+            return item.href ? (
+              <a
+                key={index}
+                href={item.href}
+                target={item.href.startsWith('http') ? '_blank' : undefined}
+                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="block"
+              >
+                {content}
+              </a>
+            ) : (
+              <div key={index}>
+                {content}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
