@@ -1,47 +1,8 @@
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
-import ProjectSection from "@/components/ProjectSection";
-import { Project, getProjects } from "@/lib/projects";
+import ProjectsList from "@/components/ProjectsList";
 
-// Force dynamic rendering to avoid including all images in build output
-export const dynamic = 'force-dynamic';
-
-async function fetchProjects(): Promise<Project[]> {
-  // Try to fetch from API route first (for separation and smaller function size)
-  try {
-    const baseUrl = process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}`
-      : process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    
-    const res = await fetch(`${baseUrl}/api/projects`, {
-      cache: 'no-store',
-    });
-    
-    if (res.ok) {
-      const data = await res.json();
-      // Ensure we have valid data
-      if (Array.isArray(data) && data.length > 0) {
-        return data;
-      }
-    }
-  } catch (error) {
-    console.error('Error fetching projects from API, falling back to direct call:', error);
-  }
-  
-  // Fallback: use direct function call if API route fails
-  // This ensures the page always works
-  try {
-    const projects = await getProjects();
-    return Array.isArray(projects) ? projects : [];
-  } catch (error) {
-    console.error('Error getting projects directly:', error);
-    return [];
-  }
-}
-
-export default async function Projekty() {
-  const projects = await fetchProjects();
-
+export default function Projekty() {
   return (
     <div className="h-full w-full">
       <Hero
@@ -56,15 +17,7 @@ export default async function Projekty() {
       <div className="bg-amber-800 relative top-[-82px]" style={{ "borderRadius": "82px" }}>
         <div className="py-24 max-md:py-12">
           <div className="w-6/7 mx-auto max-w-7xl px-4">
-            {projects && projects.length > 0 ? (
-              projects.map((project, index) => (
-                <ProjectSection key={project.folderName || index} project={project} />
-              ))
-            ) : (
-              <div className="text-center text-white py-12">
-                <p>Ładowanie projektów...</p>
-              </div>
-            )}
+            <ProjectsList />
           </div>
         </div>
       </div>
