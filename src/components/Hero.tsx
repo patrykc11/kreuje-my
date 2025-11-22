@@ -11,6 +11,7 @@ interface HeroProps {
   backgroundPosition?: string;
   darkTheme?: boolean;
   fullWidth?: boolean;
+  disableHoverAnimations?: boolean;
 }
 
 const Hero = ({
@@ -23,6 +24,7 @@ const Hero = ({
   backgroundPosition = 'center',
   darkTheme = false,
   fullWidth = false,
+  disableHoverAnimations = false,
 }: HeroProps) => {
   return (
     <div
@@ -47,10 +49,10 @@ const Hero = ({
       {/* Hero overlay */}
       <div className={`z-10 flex flex-col items-center justify-center h-full ${fullWidth ? 'w-full' : 'w-6/7'} mx-auto my-8`}>
         <div className="flex items-center justify-between w-full px-8">
-          <div className="hover-scale transition-transform duration-500">
+          <div className={disableHoverAnimations ? '' : 'hover-scale transition-transform duration-500'}>
             {leftElement}
           </div>
-          <div className="hover-lift transition-all duration-500">
+          <div className={disableHoverAnimations ? '' : 'hover-lift transition-all duration-500'}>
             {rightElement}
           </div>
         </div>

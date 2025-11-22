@@ -109,6 +109,7 @@ export default function Kontakt() {
           </div>}
         rightElement={<></>}
         gradientOverlay="linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0) 20%)"
+        disableHoverAnimations={true}
       />
 
       {/* Icons section */}
