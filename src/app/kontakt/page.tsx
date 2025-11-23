@@ -104,8 +104,8 @@ export default function Kontakt() {
       <Hero
         backgroundImageUrl="/images/kontakt-glowne.jpg"
         leftElement={
-          <div className="bg-white absolute bottom-30 left-[-200px] rounded-r-full px-16 w-xl text-right">
-            <h1 className="text-black text-6xl">KONTAKT</h1>
+          <div className="bg-white absolute bottom-30 -left-20 md:left-[-200px] rounded-r-full px-8 md:px-16 w-full md:w-xl text-center md:text-right">
+            <h1 className="text-black text-4xl md:text-6xl">KONTAKT</h1>
           </div>}
         rightElement={<></>}
         gradientOverlay="linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0) 20%)"
@@ -114,7 +114,7 @@ export default function Kontakt() {
       {/* Icons section */}
       <div className="bg-amber-800 relative top-[-82px] mx-auto z-40" style={{ borderRadius: "82px" }} >
         <div className="py-24 max-md:py-12">
-          <div className="grid grid-cols-3 items-center justify-center w-5/7 max-lg:w-6/7 mx-auto gap-8 relative">
+          <div className="grid grid-cols-1 md:grid-cols-3 items-center justify-center w-5/7 max-lg:w-6/7 mx-auto gap-8 relative">
             <FlipCard
               front={<Image src="/icons/komorka.png" alt="Komorka" width={120} height={120} />}
               back={
@@ -291,10 +291,16 @@ export default function Kontakt() {
           </div>
 
           {/* Text */}
-          <div className="flex-1 relative h-[450px]">
-            <div className="absolute -bottom-30 left-2/6 -translate-x-1/2 translate-y-1/2 z-20 mt-10 rounded-r-[80px] bg-amber-800 px-10 py-8 text-black w-xl mx-auto pl-52">
+          <div className="flex-1 relative h-auto md:h-[450px] flex flex-col">
+            <div className="bg-white px-10 py-12 relative z-30 h-full rounded-4xl md:rounded-none mt-8 md:mt-0">
+              <h3 className="text-xl md:text-3xl font-semibold uppercase tracking-widest text-black">POROZMAWIAJMY O TWOICH POTRZEBACH</h3>
+              <p className="mt-6 text-sm md:text-base">
+                Dziękuję za zainteresowanie moimi usługami architektonicznymi. Po wysłaniu formularza skontaktuję się z Tobą, aby omówić Twoje potrzeby oraz oczekiwania. A następnie zaproponuję indywidualne rozwiązania, które będą najlepiej odpowiadać Twoim wymaganiom. Wierzę, że nasza współpraca pozwoli Ci zrealizować Twoje marzenia o idealnym projekcie architektonicznym.
+              </p>
+            </div>
+            <div className="relative md:absolute md:-bottom-30 md:left-2/6 md:-translate-x-1/2 md:translate-y-1/2 z-20 mt-10 rounded-r-full md:rounded-r-[80px] bg-amber-800 px-10 py-8 text-black w-full md:w-xl mx-auto md:pl-52 text-center md:text-left">
               <h3 className="text-2xl font-semibold tracking-[0.4em]">ZOBACZ</h3>
-              <div className="mt-6 space-y-4 text-sm tracking-[0.4em]">
+              <div className="mt-6 space-y-4 text-sm tracking-[0.4em] flex flex-col items-center md:items-start">
                 <Link href={socialLinks.instagram} target="_blank" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
                     <Image src="/icons/insta.png" alt="Instagram" width={24} height={24} />
@@ -308,12 +314,6 @@ export default function Kontakt() {
                   <span>FACEBOOK</span>
                 </Link>
               </div>
-            </div>
-            <div className="bg-white px-10 py-12 relative z-30 h-full">
-              <h3 className="text-3xl font-semibold uppercase tracking-widest text-black">POROZMAWIAJMY O TWOICH POTRZEBACH</h3>
-              <p className="mt-6">
-                Dziękuję za zainteresowanie moimi usługami architektonicznymi. Po wysłaniu formularza skontaktuję się z Tobą, aby omówić Twoje potrzeby oraz oczekiwania. A następnie zaproponuję indywidualne rozwiązania, które będą najlepiej odpowiadać Twoim wymaganiom. Wierzę, że nasza współpraca pozwoli Ci zrealizować Twoje marzenia o idealnym projekcie architektonicznym.
-              </p>
             </div>
           </div>
         </div>

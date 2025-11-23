@@ -130,11 +130,10 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
       <Hero
         backgroundImageUrl="/images/oferta-glowne.jpg"
         fullWidth={true}
-        leftElement={<h1 className="text-black text-6xl relative top-[-82px] ml-26">OFERTA</h1>}
-        rightElement={<Link href="/kontakt" className="bg-amber-800 rounded-l-4xl w-2/5 text-left relative -right-30 max-md:right-0 top-[-82px] py-4 px-8 block">
-          <p className="text-md text-white">
-            UMÓW SIĘ NA BEZPŁATNĄ
-            KONSULTACJE
+        leftElement={<h1 className="text-black text-4xl md:text-6xl relative top-[-10px] md:top-[-82px] ml-0 md:ml-26 text-center md:text-left w-full">OFERTA</h1>}
+        rightElement={<Link href="/kontakt" className="bg-amber-800 max-md:rounded-4xl md:rounded-l-4xl w-full md:w-auto text-center md:text-left relative right-0 md:-right-8 top-[-60px] md:top-[-82px] py-4 px-8 block mt-8 md:mt-0 mx-auto md:mx-0">
+          <p className="text-md text-white whitespace-nowrap">
+            UMÓW SIĘ NA BEZPŁATNĄ KONSULTACJE
           </p>
         </Link>}
       />
@@ -144,9 +143,9 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
         <div className="py-24 max-md:py-12">
           <div className="w-6/7 mx-auto gap-8 relative max-w-4xl">
             <div className="text-center text-white text-2xl mb-6 w-full border-2 border-white rounded-full p-1"><h2>USŁUGI</h2></div>
-            <div className="grid grid-cols-2 mx-auto justify-center items-stretch gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 mx-auto justify-center items-stretch gap-8">
               {packageOptions.map((option, index) => (
-                <div className="max-w-80 mx-auto h-full flex" key={index}>
+                <div className="max-w-80 mx-auto h-full flex w-full" key={index}>
                   <PackageOptionCard
                     title={option.title}
                     description={option.description}
@@ -166,8 +165,8 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
           <div className="flex flex-col mx-auto justify-center items-stretch gap-8">
 
             {detailedPackages.map((pkg, pkgIndex) => (
-              <div key={pkg.title} className="border-2 border-black rounded-4xl p-4 px-8 grid grid-cols-2 gap-8">
-                <div className="flex flex-col justify-center gap-4 w-2/3 min-w-48 max-w-2xs">
+              <div key={pkg.title} className="border-2 border-black rounded-4xl p-4 px-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="flex flex-col justify-center gap-4 w-full md:w-2/3 min-w-48 max-w-none md:max-w-2xs">
                   <div className="relative">
                     <h3 className="text-2xl">{pkg.title}</h3>
                     <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-15 rounded-full bg-amber-800 border-2 border-black w-12 h-12" />

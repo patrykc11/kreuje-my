@@ -86,9 +86,9 @@ export default function Home() {
     <div className="h-full w-full">
       <Hero
         backgroundImageUrl="/images/hero-main.jpg"
-        leftElement={<Image src="/images/nazwa.png" alt="Logo" width={400} height={400} />}
+        leftElement={<Image src="/images/nazwa.png" alt="Logo" width={400} height={400} className="w-full h-auto max-w-[300px] md:max-w-[400px]" />}
         rightElement={
-          <div className="bg-amber-800 rounded-4xl p-2 w-1/3 text-center">
+          <div className="bg-amber-800 rounded-4xl p-2 w-full md:w-1/3 text-center">
             <h5 className="text-md text-white">
               Nie żyj po prostu w swoim wnętrzu - rozwijaj
               się w nim dzięki wyjątkowemu projektowi.
@@ -98,8 +98,8 @@ export default function Home() {
       />
       {/* Offer section */}
       <div className="bg-amber-800" style={{ "borderTopRightRadius": "82px", "borderTopLeftRadius": "82px" }}>
-        <div className="flex items-start justify-evenly w-6/7 mx-auto py-24 max-md:py-12">
-          <div className="py-2 pb-8 rounded-4xl text-white border-2 border-white w-1/3 max-w-80 overflow-visible flex flex-col items-center justify-center">
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-evenly w-6/7 mx-auto py-24 max-md:p-12 gap-12 md:gap-0">
+          <div className="py-2 pb-8 rounded-4xl text-white border-2 border-white w-full md:w-1/3 max-w-80 overflow-visible flex flex-col items-center justify-center">
             <Link href="/oferta" className="relative group flex items-center justify-center mb-4">
               <h2 className="text-md text-center relative z-10">OFERTA</h2>
               <div className="absolute w-14 h-14 rounded-full border border-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
@@ -112,8 +112,8 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <div className="w-1/3 flex gap-4 items-center justify-center flex-col">
-            <div className="px-4 py-2 rounded-4xl text-white border-1 border-white text-center">
+          <div className="w-full md:w-1/3 flex gap-4 items-center justify-center flex-col">
+            <div className="px-4 py-2 rounded-4xl text-white border-1 border-white text-center w-full">
               <h2 className="text-md">KOMPLEKSOWY PROJEKT WNĘTRZA</h2>
             </div>
             {packageOptions.map((option, index) => (
@@ -129,10 +129,10 @@ export default function Home() {
 
       {/* About section */}
       <div className="bg-amber-800">
-        <div className="bg-white p-12" style={{ "borderTopRightRadius": "82px", "borderTopLeftRadius": "82px" }}>
-          <div className="flex items-stretch justify-center w-6/7 mx-auto py-24 max-md:py-12">
+        <div className="bg-white p-12 max-md:p-6" style={{ "borderTopRightRadius": "82px", "borderTopLeftRadius": "82px" }}>
+          <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center w-6/7 mx-auto py-24 max-md:py-12 gap-16 md:gap-0">
             {aboutCards.flatMap((card, index) => [
-              <div key={`card-${index}`} className="border-2 border-amber-800 z-20 bg-white rounded-4xl p-4 text-center flex flex-col items-center justify-between w-1/5 min-w-48 pt-18 relative self-stretch">
+              <div key={`card-${index}`} className="border-2 border-amber-800 z-20 bg-white rounded-4xl p-4 text-center flex flex-col items-center justify-between w-full md:w-1/5 min-w-48 pt-18 relative self-stretch max-w-xs md:max-w-none">
                 <div className="border-2 border-amber-800 bg-amber-800 z-10 rounded-full w-22 h-22 absolute left-1/2 top-0 -translate-y-1/2 -translate-x-1/2" />
                 <div className="border-2 border-amber-800 bg-white z-10 rounded-b-full w-22 h-11 absolute left-1/2 top-0 -translate-x-1/2" />
                 {index === 1 && (
@@ -147,7 +147,7 @@ export default function Home() {
                 </div>
               </div>,
               ...(index < aboutCards.length - 1 ? [
-                <div key={`line-${index}`} className="relative flex items-center z-10 w-16">
+                <div key={`line-${index}`} className="relative hidden md:flex items-center z-10 w-16">
                   <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-amber-800 -translate-y-1/2"></div>
                 </div>
               ] : [])
@@ -158,10 +158,10 @@ export default function Home() {
 
       {/* Trust badge section */}
       <div className="bg-white">
-        <div className="bg-amber-800 px-12 py-24 max-md:py-12" style={{ "borderRadius": "82px" }}>
-          <div className="w-6/7 max-w-7xl mx-auto flex gap-8 items-start justify-evenly ">
+        <div className="bg-amber-800 px-12 max-md:px-6 py-24 max-md:py-12" style={{ "borderRadius": "82px" }}>
+          <div className="w-6/7 max-w-7xl mx-auto flex flex-col md:flex-row gap-8 items-center md:items-start justify-evenly">
             {/* Left column - Why trust me */}
-            <div className="flex-1 max-w-md flex flex-col gap-6">
+            <div className="w-full max-w-md flex flex-col gap-6">
               <div className="border-2 border-white text-white rounded-4xl px-4 py-3 w-xs mx-auto">
                 <h2 className="text-lg uppercase text-center">DLACZEGO WARTO MI ZAUFAĆ?</h2>
               </div>
@@ -177,7 +177,7 @@ export default function Home() {
             </div>
 
             {/* Right column - Cooperation stages */}
-            <div className="flex-1 max-w-md flex flex-col gap-6">
+            <div className="w-full max-w-md flex flex-col gap-6">
               <div className="border-2 border-white text-white rounded-4xl px-4 py-3 w-xs mx-auto">
                 <h2 className="text-lg uppercase text-center">ETAPY WSPÓŁPRACY</h2>
               </div>
