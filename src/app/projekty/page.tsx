@@ -3,6 +3,9 @@ import Hero from "@/components/Hero";
 import ProjectSection from "@/components/ProjectSection";
 import { getProjects } from "@/lib/projects";
 
+// Force dynamic rendering to avoid including all images in build output
+export const dynamic = 'force-dynamic';
+
 export default async function Projekty() {
   const projects = await getProjects();
 
