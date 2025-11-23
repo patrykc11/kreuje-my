@@ -86,7 +86,7 @@ export default function Home() {
     <div className="h-full w-full">
       <Hero
         backgroundImageUrl="/images/hero-main.jpg"
-        leftElement={<Image src="/images/nazwa.png" alt="Logo" width={400} height={400} className="w-full h-auto max-w-[300px] md:max-w-[400px]" />}
+        leftElement={<Image src="/images/nazwa.png" alt="Logo" width={400} height={400} className="w-1/3 max-lg:w-1/2 max-md:w-full h-auto max-w-[300px] md:max-w-[400px]" />}
         rightElement={
           <div className="bg-amber-800 rounded-4xl p-2 w-full md:w-1/3 text-center">
             <h5 className="text-md text-white">
