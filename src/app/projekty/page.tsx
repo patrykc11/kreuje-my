@@ -7,7 +7,7 @@ export default function Projekty() {
     <div className="h-full w-full">
       <Hero
         backgroundImageUrl="/images/projekty-glowne.jpg"
-        leftElement={<h1 className="text-white text-6xl relative top-[-82px]">PROJEKTY</h1>}
+        leftElement={<h1 className="text-white text-4xl md:text-6xl relative top-[-82px]">PROJEKTY</h1>}
         rightElement={<></>}
         gradientOverlay="transparent"
         darkTheme={true}

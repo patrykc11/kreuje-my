@@ -62,9 +62,9 @@ const Contact = ({
   const textColor = backgroundColor === "bg-white" ? "text-black" : "text-white";
 
   return (
-    <div className={`${backgroundColor} p-12`} style={{ "borderRadius": "82px" }}>
-      <div className="w-6/7 max-w-7xl mx-auto flex gap-8 items-start justify-evenly">
-        <div className="relative flex items-center justify-center">
+    <div className={`${backgroundColor} p-12 max-md:p-6`} style={{ "borderRadius": "82px" }}>
+      <div className="w-6/7 max-w-7xl mx-auto flex flex-col md:flex-row gap-8 items-center justify-evenly">
+        <div className="relative flex items-center justify-center w-full md:w-auto">
           <Image
             src={photoUrl}
             alt={title}
@@ -82,7 +82,7 @@ const Contact = ({
             />
           )}
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 w-full md:w-auto">
           <h2 className={`text-2xl text-center mb-4 ${textColor}`}>{title}</h2>
           {contactItems.map((item, index) => {
             const content = (

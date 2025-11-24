@@ -306,4 +306,3 @@ const ProjectSection = ({ project }: ProjectSectionProps) => {
 };
 
 export default ProjectSection;
-
