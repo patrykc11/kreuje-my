@@ -1,38 +1,18 @@
-import fs from 'fs';
-import path from 'path';
+const fs = require('fs');
+const path = require('path');
 
-export interface ProjectImage {
-  filename: string;
-  path: string;
-}
+const projectsDir = path.join(process.cwd(), 'public', 'projekty');
+const outputFile = path.join(process.cwd(), 'public', 'projects.json');
 
-export interface Project {
-  name: string;
-  folderName: string;
-  images: ProjectImage[];
-}
-
-export async function getProjects(): Promise<Project[]> {
-  // Try to read from generated JSON file first (for production/Vercel)
-  const jsonPath = path.join(process.cwd(), 'public', 'projects.json');
-  
+function generateProjectsList() {
   try {
-    if (fs.existsSync(jsonPath)) {
-      const jsonData = fs.readFileSync(jsonPath, 'utf-8');
-      const projects = JSON.parse(jsonData) as Project[];
-      return projects;
-    }
-  } catch (error) {
-    console.error('Error reading projects.json:', error);
-  }
-
-  // Fallback: read from file system (for development)
-  const projectsDir = path.join(process.cwd(), 'public', 'projekty');
-  
-  try {
+    console.log('Generating projects list...');
+    console.log('Reading from:', projectsDir);
+    
     if (!fs.existsSync(projectsDir)) {
-      console.warn('Projects directory does not exist:', projectsDir);
-      return [];
+      console.error('Projects directory does not exist:', projectsDir);
+      fs.writeFileSync(outputFile, JSON.stringify([], null, 2));
+      return;
     }
 
     const folders = fs.readdirSync(projectsDir, { withFileTypes: true })
@@ -48,7 +28,7 @@ export async function getProjects(): Promise<Project[]> {
         return a.localeCompare(b);
       });
 
-    const projects: Project[] = [];
+    const projects = [];
 
     for (const folderName of folders) {
       const folderPath = path.join(projectsDir, folderName);
@@ -72,10 +52,16 @@ export async function getProjects(): Promise<Project[]> {
       }
     }
 
-    return projects;
+    fs.writeFileSync(outputFile, JSON.stringify(projects, null, 2));
+    console.log(`✅ Generated projects list with ${projects.length} projects`);
+    console.log('Output file:', outputFile);
   } catch (error) {
-    console.error('Error reading projects from file system:', error);
-    return [];
+    console.error('Error generating projects list:', error);
+    // Write empty array to prevent build failures
+    fs.writeFileSync(outputFile, JSON.stringify([], null, 2));
+    process.exit(1);
   }
 }
+
+generateProjectsList();
 

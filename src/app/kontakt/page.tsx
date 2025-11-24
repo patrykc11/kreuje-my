@@ -51,23 +51,21 @@ export default function Kontakt() {
     setFeedback(null);
 
     try {
+      const formData = new FormData();
+      formData.append("services", JSON.stringify(selectedServices));
+      formData.append("area", area);
+      formData.append("rooms", rooms);
+      formData.append("deadline", deadline);
+      formData.append("email", email);
+      
+      // Dodaj wszystkie pliki do FormData
+      attachments.forEach((file) => {
+        formData.append("attachments", file);
+      });
+
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          services: selectedServices,
-          area,
-          rooms,
-          deadline,
-          email,
-          attachments: attachments.map((file) => ({
-            name: file.name,
-            size: file.size,
-            type: file.type
-          }))
-        })
+        body: formData, // Nie ustawiaj Content-Type - przeglądarka ustawi z boundary
       });
 
       if (!response.ok) {
