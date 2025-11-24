@@ -20,27 +20,13 @@ const ProjectSection = ({ project }: ProjectSectionProps) => {
   const EDGE_THRESHOLD = 100; // Strefa krawędziowa w pikselach
   const SCROLL_SPEED = 3; // Prędkość scrollowania
   const VISIBLE_COUNT = 7; // Liczba widocznych zdjęć
-  const IMAGE_WIDTH = 224; // w-56 = 224px
-  const IMAGE_HEIGHT = 320; // h-80 = 320px
-  
-  // Funkcja obliczająca maksymalną skalę w widocznych zdjęciach
-  const getMaxScale = (): number => {
-    if (hoveredIndex === null || !visibleIndices.includes(hoveredIndex)) return 1;
-    return 1.25; // Największa skala
-  };
   
   // Funkcja obliczająca dynamiczny padding na podstawie maksymalnej skali
   const getDynamicPadding = (): { vertical: number; horizontal: number } => {
-    const maxScale = getMaxScale();
-    const scaleDiff = maxScale - 1;
-    
-    // Oblicz ile miejsca potrzebujemy z każdej strony
-    const verticalPadding = (IMAGE_HEIGHT * scaleDiff) / 2;
-    const horizontalPadding = (IMAGE_WIDTH * scaleDiff) / 2;
-    
+    // Nie potrzebujemy padding, bo najechane nie rośnie
     return {
-      vertical: Math.ceil(verticalPadding),
-      horizontal: Math.ceil(horizontalPadding),
+      vertical: 0,
+      horizontal: 0,
     };
   };
   
@@ -63,19 +49,19 @@ const ProjectSection = ({ project }: ProjectSectionProps) => {
     
     const distance = Math.abs(currentPos - hoveredPos);
     
-    // Najechane x1.25, pierwsze po bokach x1.0, kolejne x0.75, następne x0.5, najdalsze x0.4
+    // Najechane pozostaje w oryginalnym rozmiarze (1.0), reszta jest zmniejszana
     const scaleMap: { [key: number]: number } = {
-      0: 1.25,   // Najechane
-      1: 1.0,    // Pierwsze po bokach
-      2: 0.90,   // Kolejne
-      3: 0.80,    // Następne
-      4: 0.70,    // Najdalsze
-      5: 0.60,    // Najdalsze
-      6: 0.50,    // Najdalsze
-      7: 0.40,    // Najdalsze
+      0: 1.0,    // Najechane - oryginalny rozmiar
+      1: 0.85,   // Pierwsze po bokach
+      2: 0.75,   // Kolejne
+      3: 0.65,   // Następne
+      4: 0.55,   // Najdalsze
+      5: 0.45,   // Najdalsze
+      6: 0.40,   // Najdalsze
+      7: 0.35,   // Najdalsze
     };
     
-    return scaleMap[distance] || 0.4;
+    return scaleMap[distance] || 0.35;
   };
 
   // Funkcja aktualizująca widoczne zdjęcia

@@ -89,7 +89,7 @@ export default function Home() {
     <div className="h-full w-full">
       <Hero
         backgroundImageUrl="/images/hero-main.jpg"
-        leftElement={<Image src="/images/nazwa.png" alt="Logo" width={400} height={400} className="w-1/3 max-lg:w-1/2 max-md:w-full h-auto max-w-[300px] md:max-w-[400px]" />}
+        leftElement={<Image src="/images/nazwa.png" alt="Logo" width={600} height={600} className="w-2/3 max-lg:w-3/4 max-md:w-full h-auto max-w-[500px] md:max-w-[600px]" />}
         rightElement={
           <div className="bg-amber-800 rounded-4xl p-6 w-full text-center flex items-center justify-center">
             <h5 className="text-md text-white">
@@ -139,19 +139,19 @@ export default function Home() {
               {aboutCards.flatMap((card, index) => [
                 <div
                   key={`card-${index}`}
-                  className="border-2 border-amber-800 z-20 bg-white rounded-4xl p-4 text-center flex flex-col items-center justify-between w-full md:w-1/5 min-w-48 pt-18 relative self-stretch max-w-xs md:max-w-none"
+                  className="group border-2 border-amber-800 z-20 bg-white rounded-4xl p-4 text-center flex flex-col items-center justify-between w-full md:w-1/5 min-w-48 pt-18 relative self-stretch max-w-xs md:max-w-none transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-amber-900"
                 >
-                  <div className="border-2 border-amber-800 bg-amber-800 z-10 rounded-full w-22 h-22 absolute left-1/2 top-0 -translate-y-1/2 -translate-x-1/2" />
-                  <div className="border-2 border-amber-800 bg-white z-10 rounded-b-full w-22 h-11 absolute left-1/2 top-0 -translate-x-1/2" />
+                  <div className="border-2 border-amber-800 bg-amber-800 z-10 rounded-full w-22 h-22 absolute left-1/2 top-0 -translate-y-1/2 -translate-x-1/2 transition-all duration-300 group-hover:scale-110 group-hover:bg-amber-900" />
+                  <div className="border-2 border-amber-800 bg-white z-10 rounded-b-full w-22 h-11 absolute left-1/2 top-0 -translate-x-1/2 transition-all duration-300" />
                   {index === 1 && (
-                    <Link href="/o-mnie" className="absolute left-1/2 -top-3 -translate-y-1/2 -translate-x-1/2 z-20 flex items-center justify-center w-22 h-22 group">
+                    <Link href="/o-mnie" className="absolute left-1/2 -top-3 -translate-y-1/2 -translate-x-1/2 z-20 flex items-center justify-center w-22 h-22">
                       <h2 className="text-white text-s relative z-10">O MNIE</h2>
-                      <div className="absolute top-3 left-0 w-22 h-22 rounded-full border-2 border-transparent group-hover:border-black transition-colors duration-300" />
+                      <div className="absolute top-3 left-0 w-22 h-22 rounded-full border-2 border-transparent hover:border-black transition-colors duration-300" />
                     </Link>
                   )}
-                  <p>{card.text}</p>
+                  <p className="transition-colors duration-300 group-hover:text-amber-900">{card.text}</p>
                   <div className="my-4 w-30 h-30 flex items-center justify-center overflow-hidden mt-auto">
-                    <Image src={card.image} alt={card.alt} width={150} height={150} className="max-w-full max-h-full w-auto h-auto object-contain" />
+                    <Image src={card.image} alt={card.alt} width={150} height={150} className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-110" />
                   </div>
                 </div>,
                 ...(index < aboutCards.length - 1
