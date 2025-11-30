@@ -116,7 +116,7 @@ export default function Home() {
         }
       />
       {/* Offer section */}
-      <div className="bg-amber-800 relative z-10 -mt-[82px]" style={{ "borderTopRightRadius": "82px", "borderTopLeftRadius": "82px" }}>
+      <div className="bg-amber-800 relative z-10 -mt-[82px] rounded-t-[40px] md:rounded-t-[82px]">
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between w-3/4 mx-auto py-24 md:px-8 max-md:p-12 gap-12 md:gap-0">
           <div className="py-2 pb-8 rounded-4xl text-white border-2 border-white w-full md:w-1/3 max-w-80 overflow-visible flex flex-col items-center justify-center hover-lift">
             <Link href="/oferta" className="relative group flex items-center justify-center mb-4">
@@ -150,7 +150,7 @@ export default function Home() {
       {/* About section */}
       <ScrollSection animationType="fade-up">
         <div className="bg-amber-800">
-          <div className="bg-white p-12 max-md:p-6" style={{ "borderTopRightRadius": "82px", "borderTopLeftRadius": "82px" }}>
+          <div className="bg-white p-12 max-md:p-6 rounded-t-[40px] md:rounded-t-[82px]">
             <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center w-6/7 mx-auto py-24 max-md:py-12 gap-16 md:gap-0">
               {aboutCards.flatMap((card, index) => [
                 <div
@@ -186,7 +186,7 @@ export default function Home() {
       {/* Trust badge section */}
       <ScrollSection animationType="fade-up">
         <div className="bg-white">
-          <div className="bg-amber-800 px-12 max-md:px-6 py-24 max-md:py-12" style={{ "borderRadius": "82px" }}>
+          <div className="bg-amber-800 px-12 max-md:px-6 py-24 max-md:py-12 rounded-[40px] md:rounded-[82px]">
             <div className="w-6/7 max-w-7xl mx-auto flex flex-col md:flex-row gap-8 items-center md:items-start justify-evenly">
               {/* Left column - Why trust me */}
               <div className="w-full max-w-md flex flex-col gap-6">

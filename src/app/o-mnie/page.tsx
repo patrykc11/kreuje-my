@@ -13,7 +13,7 @@ export default function OMnie() {
       />
 
       {/* O mnie section */}
-      <div className="bg-amber-800 relative top-[-82px]" style={{ "borderRadius": "82px" }}>
+      <div className="bg-amber-800 relative top-[-82px] rounded-[40px] md:rounded-[82px]">
         <div className="py-24 max-md:py-12">
           <div className="flex flex-col md:flex-row items-center md:items-start justify-center w-6/7 mx-auto gap-8 relative">
             <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] max-w-[1200px] h-1/2 border-3 border-black rounded-full"></div>
