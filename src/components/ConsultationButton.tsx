@@ -9,7 +9,7 @@ const ConsultationButton = () => {
   return (
     <Link
       href="/kontakt"
-      className="rounded-4xl px-8 py-4 transition-colors duration-300 border-2"
+      className="rounded-4xl px-8 py-4 transition-colors duration-300 border-2 flex items-center justify-center"
       style={{
         color: isHovered ? 'black' : 'white',
         backgroundColor: isHovered ? 'white' : 'transparent',
