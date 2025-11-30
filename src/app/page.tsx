@@ -186,19 +186,19 @@ export default function Home() {
       {/* Trust badge section */}
       <ScrollSection animationType="fade-up">
         <div className="bg-white">
-          <div className="bg-amber-800 px-12 max-md:px-6 py-24 max-md:py-12 rounded-[40px] md:rounded-[82px]">
-            <div className="w-full md:w-3/4 max-w-7xl mx-auto flex flex-col md:flex-row gap-8 items-center md:items-start justify-evenly">
+          <div className="bg-amber-800 rounded-[40px] md:rounded-[82px]">
+            <div className="w-full md:w-3/4 max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-evenly py-24 md:px-8 max-md:p-12 gap-12 md:gap-8">
               {/* Left column - Why trust me */}
               <div className="w-full max-w-md flex flex-col gap-6">
                 <ScrollSection animationType="fade-right" delay={0}>
-                  <div className="border-2 border-white text-white rounded-4xl px-4 py-3 w-xs mx-auto">
+                  <div className="border-2 border-white text-white rounded-4xl px-4 py-3 w-full max-w-80 mx-auto">
                     <h2 className="text-lg uppercase text-center">DLACZEGO WARTO MI ZAUFAĆ?</h2>
                   </div>
                 </ScrollSection>
                 <div className="flex flex-col gap-4">
                   {trustReasons.map((reason, index) => (
                     <ScrollSection key={index} animationType="fade-right" delay={100 + index * 100}>
-                      <div className="bg-white border-2 border-amber-800 rounded-4xl p-6 relative w-xs mx-auto">
+                      <div className="bg-white border-2 border-amber-800 rounded-4xl p-6 relative w-full max-w-80 mx-auto">
                         <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 bg-amber-800 rounded-full border-2 border-white"></div>
                         <h3 className="font-bold text-sm uppercase mb-2 ml-4">{reason.title}</h3>
                         <p className="text-sm ml-4">{reason.description}</p>
@@ -211,7 +211,7 @@ export default function Home() {
               {/* Right column - Cooperation stages */}
               <div className="w-full max-w-md flex flex-col gap-6">
                 <ScrollSection animationType="fade-left" delay={0}>
-                  <div className="border-2 border-white text-white rounded-4xl px-4 py-3 w-xs mx-auto">
+                  <div className="border-2 border-white text-white rounded-4xl px-4 py-3 w-full max-w-80 mx-auto">
                     <h2 className="text-lg uppercase text-center">ETAPY WSPÓŁPRACY</h2>
                   </div>
                 </ScrollSection>
