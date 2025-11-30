@@ -29,9 +29,13 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body
-        className={`${openSans.variable} ${playfairDisplay.variable} antialiased`}
+        className={`${openSans.variable} ${playfairDisplay.variable} antialiased bg-white`}
       >
-        {children}
+        <div className="min-h-screen p-3 md:p-5 lg:p-8">
+          <div className="w-full min-h-[calc(100vh-1.5rem)] md:min-h-[calc(100vh-2.5rem)] lg:min-h-[calc(100vh-4rem)] rounded-[82px] overflow-hidden border-2 border-amber-800">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );

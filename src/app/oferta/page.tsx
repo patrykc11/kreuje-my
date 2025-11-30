@@ -133,6 +133,7 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
       <Hero
         backgroundImageUrl="/images/oferta-glowne.jpg"
         fullWidth={true}
+        rightElementHoverClass="transition-transform duration-300 hover:-translate-y-[5px]"
         leftElement={<h1 className="text-black text-4xl md:text-6xl relative top-[-10px] md:top-[-82px] ml-0 md:ml-26 text-center md:text-left w-full">OFERTA</h1>}
         rightElement={
           <Link
@@ -149,9 +150,9 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
       {/* Usługi section */}
       <div className="bg-amber-800 relative top-[-82px]" style={{ "borderRadius": "82px" }}>
         <div className="py-24 max-md:py-12">
-          <div className="w-6/7 mx-auto gap-8 relative max-w-4xl">
+          <div className="w-6/7 md:w-fit mx-auto gap-8 relative">
             <div className="text-center text-white text-2xl mb-6 w-full border-2 border-white rounded-full p-1"><h2>USŁUGI</h2></div>
-            <div className="grid grid-cols-1 md:grid-cols-2 mx-auto justify-center items-stretch gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 mx-auto justify-center items-stretch gap-y-4 gap-x-32">
               {packageOptions.map((option, index) => (
                 <div className="max-w-80 mx-auto h-full flex w-full" key={index}>
                   <PackageOptionCard
