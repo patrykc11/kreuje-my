@@ -62,7 +62,7 @@ const Contact = ({
   const textColor = backgroundColor === "bg-white" ? "text-black" : "text-white";
 
   return (
-    <div className={`${backgroundColor} p-12 max-md:p-6`}>
+    <div className={`${backgroundColor} p-12 max-md:p-6 ${backgroundColor !== 'bg-white' ? 'rounded-[82px]' : ''} -mb-[2px] -mx-[2px]`}>
       <div className="w-6/7 max-w-7xl mx-auto flex flex-col md:flex-row gap-8 items-center justify-evenly">
         <div className="relative flex items-center justify-center w-full md:w-auto">
           <Image

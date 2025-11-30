@@ -153,7 +153,7 @@ export default function Kontakt() {
 
           {/* Form */}
           <div className="z-50 w-full">
-            <div className="rounded-[110px] border-2 border-black bg-white py-8 w-full">
+            <div className="rounded-[82px] md:rounded-[110px] border-2 border-black bg-white py-8 w-full">
               <form id="contact-form" onSubmit={handleSubmit} className="text-lg leading-relaxed text-black">
                 <ol className="px-8 pl-12 md:pl-16">
                   <li className="mb-4">
@@ -168,7 +168,7 @@ export default function Kontakt() {
                             className="sr-only"
                           />
                           <span
-                            className="flex h-4 w-4 items-center justify-center rounded-full border border-black"
+                            className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-black"
                             aria-hidden="true"
                           >
                             {selectedServices.includes(item) && (
@@ -297,9 +297,9 @@ export default function Kontakt() {
                 Dziękuję za zainteresowanie moimi usługami architektonicznymi. Po wysłaniu formularza skontaktuję się z Tobą, aby omówić Twoje potrzeby oraz oczekiwania. A następnie zaproponuję indywidualne rozwiązania, które będą najlepiej odpowiadać Twoim wymaganiom. Wierzę, że nasza współpraca pozwoli Ci zrealizować Twoje marzenia o idealnym projekcie architektonicznym.
               </p>
             </div>
-            <div className="relative xl:absolute xl:-bottom-30 xl:left-2/6 xl:-translate-x-1/2 xl:translate-y-1/2 z-20 mt-10 rounded-r-full xl:rounded-r-[80px] bg-amber-800 px-10 py-8 text-black w-full xl:w-xl mx-auto xl:pl-52 text-center xl:text-left">
+            <div className="relative xl:absolute xl:-bottom-30 xl:left-2/6 xl:-translate-x-1/2 xl:translate-y-1/2 z-20 mt-0 xl:mt-10 rounded-r-full xl:rounded-r-[80px] bg-amber-800 border-2 border-amber-800 xl:border-0 px-10 py-8 text-black w-[115%] -ml-[15%] xl:w-xl xl:ml-0 xl:mx-auto xl:pl-52 text-center xl:text-left">
               <h3 className="text-2xl font-semibold tracking-[0.4em]">ZOBACZ</h3>
-              <div className="mt-6 space-y-4 text-sm tracking-[0.4em] flex flex-col items-center xl:items-start">
+              <div className="mt-6 space-y-4 text-sm tracking-[0.4em] flex flex-col items-start w-fit mx-auto xl:mx-0 xl:w-full">
                 <Link href={socialLinks.instagram} target="_blank" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
                     <Image src="/icons/insta.png" alt="Instagram" width={24} height={24} />

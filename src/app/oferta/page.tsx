@@ -133,17 +133,33 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
       <Hero
         backgroundImageUrl="/images/oferta-glowne.jpg"
         fullWidth={true}
-        rightElementHoverClass="transition-transform duration-300 hover:-translate-y-[5px]"
+        rightElementHoverClass="translate-0"
         leftElement={<h1 className="text-black text-4xl md:text-6xl relative top-[-10px] md:top-[-82px] ml-0 md:ml-26 text-center md:text-left w-full">OFERTA</h1>}
         rightElement={
-          <Link
-            href="/kontakt"
-            className="bg-amber-800 max-md:rounded-4xl md:rounded-l-4xl w-full md:w-auto text-center md:text-left relative right-0 md:-right-8 top-[-60px] md:top-[-82px] py-4 px-8 block mt-8 md:mt-0 mx-auto md:mx-0"
-          >
-            <p className="text-md text-white whitespace-nowrap">
-              UMÓW SIĘ NA BEZPŁATNĄ KONSULTACJE
-            </p>
-          </Link>
+          <>
+            <div className="md:hidden w-[100vw] flex justify-center">
+              <Link
+                href="/kontakt"
+                className="bg-amber-800 rounded-4xl w-[82vw] text-center relative top-[-60px] py-4 px-8 block mt-8 overflow-hidden transition-transform duration-300 hover:-translate-y-[5px]"
+              >
+                <div className="w-full min-w-0 overflow-hidden relative" style={{ containerType: 'inline-size' }}>
+                  <div className="block w-max min-w-full animate-[marquee-bounce_5s_linear_infinite_alternate]">
+                    <p className="text-md text-white whitespace-nowrap px-1">
+                      UMÓW SIĘ NA BEZPŁATNĄ KONSULTACJE
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </div>
+            <Link
+              href="/kontakt"
+              className="hidden md:block bg-amber-800 rounded-l-4xl w-auto text-left relative -right-8 top-[-82px] py-4 px-8 mt-0 transition-transform duration-300 hover:-translate-y-[5px]"
+            >
+              <p className="text-md text-white whitespace-nowrap">
+                UMÓW SIĘ NA BEZPŁATNĄ KONSULTACJE
+              </p>
+            </Link>
+          </>
         }
       />
 
