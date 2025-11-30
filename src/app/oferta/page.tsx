@@ -208,7 +208,7 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
               <ScrollSection animationType="scale" delay={800}>
                 <Link href="/kontakt" className="block text-center text-black hover:text-white text-2xl w-full border-2 border-black rounded-full p-1 bg-white hover:bg-amber-800 relative my-12 mb-20 transition-all duration-300 hover-scale">
                   <h2>WYCEŃ SWÓJ PROJEKT</h2>
-                  <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full bg-amber-800 border-4 border-black w-24 h-24 -z-10" />
+                  <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full bg-amber-800 w-24 h-24 -z-10" />
                 </Link>
               </ScrollSection>
             </div>

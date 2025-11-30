@@ -149,13 +149,13 @@ export default function Kontakt() {
       </div >
 
       <section className="z-10 mt-[-64px] mb-12">
-        <div className="mx-auto flex w-6/7 max-w-[1200px] flex-col lg:flex-row relative">
+        <div className="mx-auto flex w-6/7 max-w-[1200px] flex-col xl:flex-row relative">
 
           {/* Form */}
           <div className="z-50 w-full">
             <div className="rounded-[110px] border-2 border-black bg-white py-8 w-full">
               <form id="contact-form" onSubmit={handleSubmit} className="text-lg leading-relaxed text-black">
-                <ol className="px-8">
+                <ol className="px-8 pl-12 md:pl-16">
                   <li className="mb-4">
                     <p className="font-semibold">1. Jakim zakresem usług jesteś zainteresowany/a?</p>
                     <div className="mt-3 pl-4">
@@ -278,8 +278,8 @@ export default function Kontakt() {
 
           {/* Image */}
           <div className="w-md relative z-30">
-            <div className="hidden h-[778px] absolute -top-[100px] right-0 rounded-b-[110px] border-2 border-black bg-cover bg-center lg:flex lg:flex-col lg:justify-center w-md" style={{ backgroundImage: "url('/images/kontakt-glowne.jpg')" }}>
-              <div className="flex h-full w-full items-center justify-center bg-white/50 rounded-b-[110px] border-2">
+            <div className="hidden h-[778px] absolute -top-[100px] right-0 rounded-b-[110px] border-2 border-black bg-cover bg-center xl:flex xl:flex-col xl:justify-center w-md" style={{ backgroundImage: "url('/images/kontakt-glowne.jpg')" }}>
+              <div className="flex h-full w-full items-center justify-center bg-white/50 rounded-b-[110px]">
                 <div className="flex h-full w-2/3 items-center justify-end">
                   <h3 className="text-2xl tracking-[0.2em]" style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}>
                     WYCEN SWÓJ PROJEKT
@@ -290,16 +290,16 @@ export default function Kontakt() {
           </div>
 
           {/* Text */}
-          <div className="flex-1 relative h-auto md:h-[450px] flex flex-col">
-            <div className="bg-white px-10 py-12 relative z-30 h-full rounded-4xl md:rounded-none mt-8 md:mt-0">
+          <div className="flex-1 relative h-auto xl:h-[450px] flex flex-col">
+            <div className="bg-white px-10 py-12 relative z-30 h-full rounded-4xl xl:rounded-none mt-8 xl:mt-0">
               <h3 className="text-xl md:text-3xl font-semibold uppercase tracking-widest text-black">POROZMAWIAJMY O TWOICH POTRZEBACH</h3>
               <p className="mt-6 text-sm md:text-base">
                 Dziękuję za zainteresowanie moimi usługami architektonicznymi. Po wysłaniu formularza skontaktuję się z Tobą, aby omówić Twoje potrzeby oraz oczekiwania. A następnie zaproponuję indywidualne rozwiązania, które będą najlepiej odpowiadać Twoim wymaganiom. Wierzę, że nasza współpraca pozwoli Ci zrealizować Twoje marzenia o idealnym projekcie architektonicznym.
               </p>
             </div>
-            <div className="relative md:absolute md:-bottom-30 md:left-2/6 md:-translate-x-1/2 md:translate-y-1/2 z-20 mt-10 rounded-r-full md:rounded-r-[80px] bg-amber-800 px-10 py-8 text-black w-full md:w-xl mx-auto md:pl-52 text-center md:text-left">
+            <div className="relative xl:absolute xl:-bottom-30 xl:left-2/6 xl:-translate-x-1/2 xl:translate-y-1/2 z-20 mt-10 rounded-r-full xl:rounded-r-[80px] bg-amber-800 px-10 py-8 text-black w-full xl:w-xl mx-auto xl:pl-52 text-center xl:text-left">
               <h3 className="text-2xl font-semibold tracking-[0.4em]">ZOBACZ</h3>
-              <div className="mt-6 space-y-4 text-sm tracking-[0.4em] flex flex-col items-center md:items-start">
+              <div className="mt-6 space-y-4 text-sm tracking-[0.4em] flex flex-col items-center xl:items-start">
                 <Link href={socialLinks.instagram} target="_blank" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
                     <Image src="/icons/insta.png" alt="Instagram" width={24} height={24} />

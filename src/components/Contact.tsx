@@ -62,7 +62,7 @@ const Contact = ({
   const textColor = backgroundColor === "bg-white" ? "text-black" : "text-white";
 
   return (
-    <div className={`${backgroundColor} p-12 max-md:p-6`} style={{ "borderRadius": "82px" }}>
+    <div className={`${backgroundColor} p-12 max-md:p-6`}>
       <div className="w-6/7 max-w-7xl mx-auto flex flex-col md:flex-row gap-8 items-center justify-evenly">
         <div className="relative flex items-center justify-center w-full md:w-auto">
           <Image
@@ -86,12 +86,25 @@ const Contact = ({
           <h2 className={`text-2xl text-center mb-4 ${textColor}`}>{title}</h2>
           {contactItems.map((item, index) => {
             const content = (
-              <div className={`flex items-center justify-start gap-4 border ${liBgColor} rounded-4xl pr-8 ${item.href ? 'cursor-pointer hover-lift transition-all duration-300' : 'hover-lift transition-all duration-300'}`}>
-                <div className="w-8 h-8 bg-amber-800 rounded-full p-2 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <div className={`flex items-center justify-start gap-4 border ${liBgColor} rounded-4xl pr-8 ${item.href ? 'cursor-pointer hover-lift transition-all duration-300' : 'hover-lift transition-all duration-300'} overflow-hidden group`}>
+                <div className="w-8 h-8 bg-amber-800 rounded-full p-2 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shrink-0">
                   <Image src={item.icon} alt={item.alt} width={24} height={24} />
                 </div>
-                <div className="text-center w-full">
+
+                {/* Desktop View: Restore original simple layout */}
+                <div className="hidden md:block text-center w-full">
                   <p>{item.text}</p>
+                </div>
+
+                {/* Mobile View: Advanced layout with truncation and marquee */}
+                <div className="md:hidden text-center w-full min-w-0 overflow-hidden relative" style={{ containerType: 'inline-size' }}>
+                  {item.text.length > 25 ? (
+                    <div className="block w-max min-w-full animate-[marquee-bounce_5s_linear_infinite_alternate]">
+                      <span>{item.text}</span>
+                    </div>
+                  ) : (
+                    <p className="truncate">{item.text}</p>
+                  )}
                 </div>
               </div>
             );

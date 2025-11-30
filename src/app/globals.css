@@ -298,3 +298,15 @@ img {
 .hover-glow:hover {
   box-shadow: 0 0 20px rgba(90, 70, 57, 0.4);
 }
+
+/* Marquee animation */
+@keyframes marquee-bounce {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-100% + 100cqw)); }
+}
+
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+}
+
