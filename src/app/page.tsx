@@ -148,7 +148,6 @@ export default function Home() {
       </div>
 
       {/* About section */}
-      <ScrollSection animationType="fade-up">
         <div className="bg-amber-800">
           <div className="bg-white p-12 max-md:p-6 rounded-t-[40px] md:rounded-t-[82px]">
             <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center w-6/7 mx-auto py-24 max-md:py-12 gap-16 md:gap-0">
@@ -181,10 +180,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </ScrollSection>
 
       {/* Trust badge section */}
-      <ScrollSection animationType="fade-up">
         <div className="bg-white">
           <div className="bg-amber-800 rounded-[40px] md:rounded-[82px]">
             <div className="w-full md:w-3/4 max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-evenly py-24 md:px-8 max-md:p-12 gap-12 md:gap-8">
@@ -237,17 +234,14 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </ScrollSection>
 
       {/* Contact section */}
-      <ScrollSection animationType="fade-up">
         <Contact
           photoUrl="/images/glowna-kontakt.jpg"
           backgroundColor="bg-white"
           logoUrl="/images/logo_czarne_skrocone.png"
           title="KONTAKT"
         />
-      </ScrollSection>
     </div >
   );
 }

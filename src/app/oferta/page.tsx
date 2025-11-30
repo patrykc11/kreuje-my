@@ -183,7 +183,6 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
       </div>
 
       {/* Projekty section */}
-      <ScrollSection animationType="fade-up">
         <div className="bg-white py-24 max-md:py-12">
           <div className="w-6/7 mx-auto gap-8 relative max-w-4xl">
             <div className="text-center text-black text-2xl mb-6 w-full border-2 border-black rounded-full p-1">
@@ -230,7 +229,6 @@ przy jednocześnie większych możliwościach i dużym wyborze.`,
             </div>
           </div>
         </div>
-      </ScrollSection>
 
       <Contact
         photoUrl="/images/oferta-kontakt.jpg"
