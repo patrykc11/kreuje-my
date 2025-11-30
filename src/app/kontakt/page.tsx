@@ -106,7 +106,7 @@ export default function Kontakt() {
             <h1 className="text-black text-4xl md:text-6xl">KONTAKT</h1>
           </div>}
         rightElement={<></>}
-        gradientOverlay="linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0) 20%)"
+        gradientOverlay="linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 7%, rgba(255,255,255,0) 15%)"
         disableHoverAnimations={true}
       />
 

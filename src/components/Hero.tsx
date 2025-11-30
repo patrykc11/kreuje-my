@@ -53,7 +53,7 @@ const Hero = ({
       <Navbar darkTheme={darkTheme} />
       {/* Gradient overlay - fade to white at top and bottom */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 hidden md:block"
         style={{
           background: gradientOverlay
         }}

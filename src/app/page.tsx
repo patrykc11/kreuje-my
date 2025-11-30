@@ -91,23 +91,23 @@ export default function Home() {
         backgroundImageUrl="/images/hero-main.jpg"
         minHeight="85vh"
         gradientOverlay="linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.95) 7%, rgba(255,255,255,0) 15%)"
-        contentWidth="w-3/4"
+        contentWidth="w-full md:w-3/4"
         alignItems="stretch"
         rightElementHoverClass="transition-transform duration-300 hover:-translate-y-[5px]"
         leftElement={
-          <div className="bg-white rounded-r-full pr-4 md:pr-8 pl-2 md:pl-3 relative flex items-center max-w-[25vw] h-full -top-10 md:-top-20">
+          <div className="bg-white rounded-r-full pr-4 md:pr-8 pl-2 md:pl-3 relative flex items-center max-w-[50vw] md:max-w-[25vw] h-full -top-16 md:-top-20">
             <div className="absolute top-0 bottom-0 right-[99%] w-[200vw] bg-white" />
             <Image 
               src="/images/nazwa.png" 
               alt="Logo" 
               width={250} 
               height={60} 
-              className="w-auto !h-8 md:!h-10 lg:!h-14 relative z-10 object-contain mt-0.5 md:mt-1" 
+              className="w-auto !h-14 md:!h-14 lg:!h-14 relative z-10 object-contain mt-0.5 md:mt-1" 
             />
           </div>
         }
         rightElement={
-          <div className="bg-amber-800 rounded-full px-6 py-2 w-full md:w-[30vw] text-center flex items-center justify-center relative -top-10 md:-top-20">
+          <div className="bg-amber-800 rounded-full px-6 py-2 w-full md:w-[30vw] text-center flex items-center justify-center relative -top-16 md:-top-20">
             <h5 className="text-md text-white">
               Nie żyj po prostu w swoim wnętrzu - rozwijaj
               się w nim dzięki wyjątkowemu projektowi.
@@ -117,7 +117,7 @@ export default function Home() {
       />
       {/* Offer section */}
       <div className="bg-amber-800 relative z-10 -mt-[82px] rounded-t-[40px] md:rounded-t-[82px]">
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-between w-3/4 mx-auto py-24 md:px-8 max-md:p-12 gap-12 md:gap-0">
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between w-full md:w-3/4 mx-auto py-24 md:px-8 max-md:p-12 gap-12 md:gap-0">
           <div className="py-2 pb-8 rounded-4xl text-white border-2 border-white w-full md:w-1/3 max-w-80 overflow-visible flex flex-col items-center justify-center hover-lift">
             <Link href="/oferta" className="relative group flex items-center justify-center mb-4">
               <h2 className="text-md text-center relative z-10">OFERTA</h2>
@@ -131,7 +131,7 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <div className="w-full md:w-[30vw] flex gap-4 items-center justify-center flex-col">
+          <div className="w-full max-w-md md:max-w-none md:w-[30vw] flex gap-4 items-center justify-center flex-col">
             <div className="px-4 py-2 rounded-4xl text-white border-1 border-white text-center w-full">
               <h2 className="text-md">KOMPLEKSOWY PROJEKT WNĘTRZA</h2>
             </div>
@@ -187,7 +187,7 @@ export default function Home() {
       <ScrollSection animationType="fade-up">
         <div className="bg-white">
           <div className="bg-amber-800 px-12 max-md:px-6 py-24 max-md:py-12 rounded-[40px] md:rounded-[82px]">
-            <div className="w-6/7 max-w-7xl mx-auto flex flex-col md:flex-row gap-8 items-center md:items-start justify-evenly">
+            <div className="w-full md:w-3/4 max-w-7xl mx-auto flex flex-col md:flex-row gap-8 items-center md:items-start justify-evenly">
               {/* Left column - Why trust me */}
               <div className="w-full max-w-md flex flex-col gap-6">
                 <ScrollSection animationType="fade-right" delay={0}>
